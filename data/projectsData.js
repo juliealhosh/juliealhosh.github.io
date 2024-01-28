@@ -3,7 +3,7 @@ const projectsData = [
     title: 'This website',
     description: `Personal Website`,
     imgSrc: '/static/images/projects/personal_website.png',
-    href: 'https://juliealhosh.github.io/', 
+    href: 'https://github.com/juliealhosh/juliealhosh.github.io', 
   },
   {
     title: 'Bird\'s Eye View (BEV)',
