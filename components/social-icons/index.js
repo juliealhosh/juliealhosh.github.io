@@ -4,20 +4,15 @@ import Facebook from './facebook.svg'
 import Youtube from './youtube.svg'
 import Linkedin from './linkedin.svg'
 import Twitter from './twitter.svg'
-import Juejin from './juejin.svg'
-import CSDN from './csdn.svg'
 import Book from './book.svg'
 import Chemistry from './chemistry.svg'
 import Educate from './educate.svg'
-import Jianshu from './jianshu.svg'
 
 // Icons taken from: https://simpleicons.org/
 
 const components = {
   mail: Mail,
   github: Github,
-  juejin: Juejin,
-  csdn: CSDN,
   facebook: Facebook,
   youtube: Youtube,
   linkedin: Linkedin,
@@ -25,7 +20,6 @@ const components = {
   book: Book,
   chemistry: Chemistry,
   educate: Educate,
-  jianshu: Jianshu,
 }
 
 const SocialIcon = ({ kind, href, size = 8 }) => {
