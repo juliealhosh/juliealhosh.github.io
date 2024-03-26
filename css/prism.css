@@ -1,0 +1,131 @@
+:root {
+  --catppuccino-mocha-bg: #1e1e2e;
+  --catppuccino-mocha-fg: #f8f8f2;
+  --catppuccino-mocha-accent: #cba6f7;
+  --catppuccino-mocha-comment: #6c7086;
+  --catppuccino-mocha-string: #a6e3a1;
+  --catppuccino-mocha-operator: #89dceb;
+  --catppuccino-mocha-keyword: #cba6f7;
+  --catppuccino-mocha-function: #89b4fa;
+  --catppuccino-mocha-variable: #ffb7b7;
+}
+
+/* Prism CSS for Catppuccino Mocha theme */
+code[class*='language-'],
+pre[class*='language-'] {
+  background: #1e1e2e;
+  font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  indigo-50-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--catppuccino-mocha-comment);
+}
+
+.token.punctuation {
+  color: var(--catppuccino-mocha-fg);
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--catppuccino-mocha-accent);
+}
+
+.token.boolean,
+.token.number {
+  color: var(--catppuccino-mocha-variable);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--catppuccino-mocha-string);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: var(--catppuccino-mocha-operator);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+  color: var(--catppuccino-mocha-function);
+}
+
+.token.keyword {
+  color: var(--catppuccino-mocha-keyword);
+}
+
+.token.regex,
+.token.important {
+  color: #f90;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.code-highlight {
+  @apply float-left min-w-full;
+}
+
+.code-line {
+  @apply -mx-4 block border-l-4 border-opacity-0 pl-4 pr-4;
+}
+
+.code-line.inserted {
+  @apply bg-green-500 bg-opacity-20;
+}
+
+.code-line.deleted {
+  @apply bg-red-500 bg-opacity-20;
+}
+
+.highlight-line {
+  @apply -mx-4 border-l-4 border-peach bg-gray-700 bg-opacity-50;
+}
+
+.line-number::before {
+  @apply -ml-2 mr-4 inline-block w-4 text-right text-gray-400;
+  content: attr(line);
+}
