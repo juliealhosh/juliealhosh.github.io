@@ -1,6 +1,7 @@
 {
   "name": "julie-alhosh",
   "version": "2.0.2",
+  "homepage": "https://juliealhosh.github.io",
   "private": true,
   "scripts": {
     "start": "next dev",
