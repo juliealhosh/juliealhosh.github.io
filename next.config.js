@@ -65,9 +65,6 @@ module.exports = () => {
     eslint: {
       dirs: ['app', 'components', 'layouts', 'scripts'],
     },
-    // images: {
-    //   domains: ['cdn.markpitblado.me'],
-    // },
     async headers() {
       return [
         {

@@ -13,7 +13,7 @@ export default function Privacy() {
       <div className="px-6 py-32 lg:px-8">
         <div className="mx-auto max-w-3xl text-text leading-7">
           <p className="text-peach font-semibold leading-">We should all care about</p>
-          <h1 className="mt-2 text-3xl text-indigo-50 font-bold tracking-tight sm:text-4xl">
+          <h1 className="mt-2 text-3xl text-slate-50 font-bold tracking-tight sm:text-4xl">
             Privacy
           </h1>
           <blockquote className="mt-6 text-yellow"> Last reviewed: 2023-12-11</blockquote>
@@ -23,7 +23,7 @@ export default function Privacy() {
             should not be taken as a contract or agreement, or supersede any existing agreements or
             contracts that I have with you or your organization.
           </p>
-          <h2 className="mt-6 text-2xl text-indigo-50 font-bold tracking-tight sm:text-3xl">
+          <h2 className="mt-6 text-2xl text-slate-50 font-bold tracking-tight sm:text-3xl">
             Interactions with this website
           </h2>
           <ul className="mt-3 leading-16 list-disc list-inside">
@@ -65,7 +65,7 @@ export default function Privacy() {
               .
             </li>
           </ul>
-          <h2 className="mt-6 text-2xl text-indigo-50 font-bold tracking-tight sm:text-3xl">
+          <h2 className="mt-6 text-2xl text-slate-50 font-bold tracking-tight sm:text-3xl">
             Interactions with me
           </h2>
           <p className="mt-3 leading-8">
@@ -80,7 +80,7 @@ export default function Privacy() {
             encrypt your response if you wish. If you do not wish to use encryption, that is fine as
             well.
           </p>
-          <h3 className="mt-3 text-xl font-bold text-indigo-50">Emailing Responsibly</h3>
+          <h3 className="mt-3 text-xl font-bold text-slate-50">Emailing Responsibly</h3>
           <p className="mt-3">
             Except in a few rare instances, I will not have insight into the legal, ethical, or
             regulations that may apply to you or your organization. It is your responsibility to
@@ -106,7 +106,7 @@ export default function Privacy() {
             clarification. Gmail would present the same problem, as it is hosted in the United
             States.
           </p>
-          <h3 className="mt-3 text-xl font-bold text-indigo-50">Direct Messages</h3>
+          <h3 className="mt-3 text-xl font-bold text-slate-50">Direct Messages</h3>
           <p className="mt-3">
             In general, I do not respond to direct messages on third-party platforms. If you wish to
             message me, please use the email address mentioned above. It can be found in the footer

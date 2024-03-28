@@ -16,7 +16,7 @@ pre[class*='language-'] {
   background: #1e1e2e;
   font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   text-align: left;
-  indigo-50-space: pre;
+  slate-50-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;

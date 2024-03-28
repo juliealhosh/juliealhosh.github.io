@@ -1,17 +1,11 @@
+<div align="center">
+  <img alt="Logo" src="https://github.com/juliealhosh/juliealhosh.github.io/blob/main/public/static/images/logo.png" width="100px" />
+</div>
+<h1 align="center">
+  <a href="https://juliealhosh.github.io/" style="text-decoration: none;color: black">juliealhosh.github.io</a>
+</h1>
 <p align="center">
-    <a href="https://markpitblado.me/feed.xml">
-        <img src="https://img.shields.io/badge/RSS_Feed-100000?style=for-the-badge&logo=rss&logoColor=f5c2e7&labelColor=313244&color=302D41"
-            alt="RSS Feed"/></a>
+  My personal website built with <a href="https://nextjs.org/" target="_blank">Nextjs</a> and hosted with <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
 </p>
 
-<p align="center">
-	<a href="https://github.com/mark-pitblado/personal-website/stargazers">
-		<img alt="Stargazers" src="https://img.shields.io/github/stars/mark-pitblado/personal-website?style=for-the-badge&color=a6e3a1&logoColor=D9E0EE&labelColor=302D41"></a>
-	<a href="https://github.com/mark-pitblado/personal-website/issues">
-		<img alt="Issues" src="https://img.shields.io/github/issues/mark-pitblado/personal-website?style=for-the-badge&logo=issues&color=89dceb&logoColor=D9E0EE&labelColor=302D41"></a>
-  	<a href="https://github.com/mark-pitblado/personal-website/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=302D41&colorB=f9e2af"/></a>
-</p>
-
-# My corner of the internet
-
-This is the space that I write on random things that come to mind, and link to other public places for my online identity. A huge thank you to [Tim](https://github.com/timlrx), a fellow UBC alumni for the development of the template which this site is based on.
+This website was built on top of [ReLive27's blog'](https://github.com/ReLive27/ReLive27.github.io), [Mark Pitblado's Blog](https://github.com/mark-pitblado/personal-website) and [Tailwind Next JS Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) templates.
