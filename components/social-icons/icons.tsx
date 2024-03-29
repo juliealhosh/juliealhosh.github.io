@@ -3,19 +3,19 @@ import { SVGProps } from 'react'
 // Icons taken from: https://simpleicons.org/
 // To add a new icon, add a new function here and add it to components in social-icons/index.tsx
 
-export function RSSIcon(svgProps: SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      {...svgProps}
-    >
-      <path d="M15.22 6.03L17.75 4.09L14.56 4L13.5 1L12.44 4L9.25 4.09L11.78 6.03L10.87 9.09L13.5 7.28L16.13 9.09L15.22 6.03Z" />
-    </svg>
-  )
-}
+// export function RSSIcon(svgProps: SVGProps<SVGSVGElement>) {
+//   return (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       width="24"
+//       height="24"
+//       viewBox="0 0 24 24"
+//       {...svgProps}
+//     >
+//       <path d="M15.22 6.03L17.75 4.09L14.56 4L13.5 1L12.44 4L9.25 4.09L11.78 6.03L10.87 9.09L13.5 7.28L16.13 9.09L15.22 6.03Z" />
+//     </svg>
+//   )
+// }
 // export function RSSIcon(svgProps: SVGProps<SVGSVGElement>) {
 //   return (
 //     <svg

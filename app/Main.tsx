@@ -19,7 +19,7 @@ export default function Home() {
             Member of the Mobile Robotics Lab <br /> of the Centre for Intelligent Machines <br />
             at McGill University
           </p>
-          <p className="font-light text-indigo-950 lg:text-xl dark:text-slate-50">
+          {/* <p className="font-light text-indigo-950 lg:text-xl dark:text-slate-50">
             Read more
             <Link className="ml-2 mr-2 font-normal text-indigo-950" href="/about">
               <RoughNotation
@@ -47,7 +47,7 @@ export default function Home() {
                 contact me
               </RoughNotation>
             </Link>
-          </p>
+          </p> */}
         </div>
 
         <div className="flex justify-start">

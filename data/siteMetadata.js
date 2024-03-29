@@ -3,7 +3,7 @@ const siteMetadata = {
   title: 'Julie Alhosh',
   author: 'Julie Alhosh',
   headerTitle: 'Julie Alhosh',
-  description: 'My personal site, mostly a blog of my random thoughts.',
+  description: 'Personal Website',
   language: 'en-ca',
   theme: 'system', // system, dark or light
   siteUrl: 'https://juliealhosh.github.io',

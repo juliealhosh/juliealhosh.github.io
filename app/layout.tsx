@@ -55,7 +55,7 @@ export default function RootLayout() {
       <link rel="icon" href="/static/favicons/favicon.ico" />
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      {/* <link rel="alternate" type="application/rss+xml" href="/feed.xml" /> */}
       <body className="mocha bg-slate-50 dark:bg-crust text-text antialiased">
         <ThemeProviders>
           <SectionContainer>

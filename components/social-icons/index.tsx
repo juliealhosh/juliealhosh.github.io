@@ -8,7 +8,7 @@ import {
   // Mastodon,
   // Orcid,
   // Exercism,
-  RSSIcon,
+  // RSSIcon,
   // Keyoxide,
 } from './icons'
 
