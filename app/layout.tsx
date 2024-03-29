@@ -62,7 +62,9 @@ export default function RootLayout() {
             <div className="flex h-screen flex-col justify-between font-sans">
               {/* <SearchProvider searchConfig={siteMetadata.search as SearchConfig}> */}
               <Header />
-              <main className="mb-auto"><Home /></main>
+              <main className="mb-auto">
+                <Home />
+              </main>
               {/* </SearchProvider> */}
               <Footer />
             </div>
@@ -72,4 +74,3 @@ export default function RootLayout() {
     </html>
   )
 }
-

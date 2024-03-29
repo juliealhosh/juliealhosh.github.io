@@ -1,5 +1,7 @@
-import ReactDOM from "react-dom";
-import RootLayout from "./layout";
-// import "./index.css"
+import RootLayout from './layout'
+import { createRoot } from 'react-dom/client'
 
-ReactDOM.render(<RootLayout />, document.querySelector("#root"));
+const container = document.querySelector('#root')
+const root = createRoot(container)
+
+root.render(<RootLayout />)
