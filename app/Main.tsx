@@ -7,7 +7,7 @@ import { RoughNotation } from 'react-rough-notation'
 import SocialIcon from '@/components/social-icons'
 const MAX_DISPLAY = 5
 
-export default function Home({ posts }) {
+export default function Home() {
   return (
     <>
       <div className="fade-in banner flex flex-1 flex-row flex-wrap justify-between px-6 py-10 dark:text-slate-50 lg:px-10">

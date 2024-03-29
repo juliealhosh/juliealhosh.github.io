@@ -2,6 +2,7 @@ import 'css/tailwind.css'
 
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
+import Home from './Main'
 import SectionContainer from '@/components/SectionContainer'
 import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
@@ -24,12 +25,12 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
-  alternates: {
-    canonical: './',
-    types: {
-      'application/rss+xml': `${siteMetadata.siteUrl}/feed.xml`,
-    },
-  },
+  // alternates: {
+  //   canonical: './',
+  //   types: {
+  //     'application/rss+xml': `${siteMetadata.siteUrl}/feed.xml`,
+  //   },
+  // },
   robots: {
     index: true,
     follow: true,
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout() {
   return (
     <html lang={siteMetadata.language} className={`scroll-smooth`} suppressHydrationWarning>
       <link rel="icon" href="/static/favicons/favicon.ico" />
@@ -59,10 +60,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProviders>
           <SectionContainer>
             <div className="flex h-screen flex-col justify-between font-sans">
-              <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
-                <Header />
-                <main className="mb-auto">{children}</main>
-              </SearchProvider>
+              {/* <SearchProvider searchConfig={siteMetadata.search as SearchConfig}> */}
+              <Header />
+              <main className="mb-auto"><Home /></main>
+              {/* </SearchProvider> */}
               <Footer />
             </div>
           </SectionContainer>
@@ -71,3 +72,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
+
