@@ -52,21 +52,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang={siteMetadata.language} className={`scroll-smooth`} suppressHydrationWarning>
       <link rel="icon" href="/static/favicons/favicon.ico" />
-        {/* <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
-        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
-        <link rel="alternate" type="application/rss+xml" href="/feed.xml" /> */}
-        <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
-          <body className="mocha bg-slate-50 dark:bg-crust text-text antialiased">
-            <SectionContainer>
-              <div className="flex h-screen flex-col justify-between font-sans">
-                {/* <SearchProvider searchConfig={siteMetadata.search as SearchConfig}> */}
-                <Header />
-                <main className="mb-auto">{children}</main>
-                {/* </SearchProvider> */}
-                <Footer />
-              </div>
-            </SectionContainer>
-          </body>
+      <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
+        <body className="mocha bg-slate-50 dark:bg-crust text-text antialiased">
+          <SectionContainer>
+            <div className="flex h-screen flex-col justify-between font-sans">
+              <Header />
+              <main className="mb-auto">{children}</main>
+              <Footer />
+            </div>
+          </SectionContainer>
+        </body>
       </ThemeProvider>
     </html>
   )
