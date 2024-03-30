@@ -2,7 +2,6 @@ import 'css/tailwind.css'
 
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
-import Home from './Main'
 import SectionContainer from '@/components/SectionContainer'
 import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
@@ -49,7 +48,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout() {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang={siteMetadata.language} className={`scroll-smooth`} suppressHydrationWarning>
       <link rel="icon" href="/static/favicons/favicon.ico" />
@@ -62,9 +61,7 @@ export default function RootLayout() {
             <div className="flex h-screen flex-col justify-between font-sans">
               {/* <SearchProvider searchConfig={siteMetadata.search as SearchConfig}> */}
               <Header />
-              <main className="mb-auto">
-                <Home />
-              </main>
+              <main className="mb-auto">{children}</main>
               {/* </SearchProvider> */}
               <Footer />
             </div>

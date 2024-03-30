@@ -3,6 +3,7 @@ import headerNavLinks from '@/data/headerNavLinks'
 import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
+import { HomeIcon } from '@heroicons/react/20/solid'
 // import SearchButton from './SearchButton'
 import Image from 'next/image'
 
@@ -34,6 +35,10 @@ const Header = () => {
         </Link>
       </div>
       <div className="flex items-center leading-5 space-x-4 sm:space-x-6">
+        <a href="/" className="text-indigo-400 hover:text-purple-400 dark:text-indigo-300 dark:hover:text-purple-300">
+          <HomeIcon className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
+          <span className="sr-only">Home</span>
+        </a>
         {headerNavLinks
           .filter((link) => link.href !== '/')
           .map((link) => (

@@ -63,7 +63,7 @@ export default function Home() {
                         📚 What I worked on
                       </span>
                     </span>
-                    <span className="pl-6 text-indigo-400 transition duration-200 group-hover:text-gray-900 dark:group-hover:text-gray-100">
+                    <span className="pl-6 text-indigo-400 transition duration-200 group-hover:text-purple-400 dark:group-hover:text-purple-300">
                       Projects&nbsp;→
                     </span>
                   </span>
@@ -81,7 +81,7 @@ export default function Home() {
                         🪪 Resume and more info
                       </span>
                     </span>
-                    <span className="pl-6 text-indigo-400 transition duration-200 group-hover:text-gray-900 dark:group-hover:text-gray-100">
+                    <span className="pl-6 text-indigo-400 transition duration-200 group-hover:text-purple-400 dark:group-hover:text-purple-300">
                       About&nbsp;→
                     </span>
                   </span>

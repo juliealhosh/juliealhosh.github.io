@@ -1,26 +1,19 @@
-import Link from '@/components/Link'
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
-import { BriefcaseIcon, UserCircleIcon, LockClosedIcon, RssIcon } from '@heroicons/react/24/solid'
+import { BriefcaseIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
 const links = [
-  {
-    name: 'Blog',
-    href: '/blog',
-    description: 'The main blog of this site.',
-    icon: RssIcon,
-  },
+  // {
+  //   name: 'Blog',
+  //   href: '/blog',
+  //   description: 'The main blog of this site.',
+  //   icon: RssIcon,
+  // },
   { name: 'About', href: '/about', description: 'A little bit about me.', icon: UserCircleIcon },
   {
     name: 'Projects',
     href: '/projects',
     description: 'Small projects that I am working on.',
     icon: BriefcaseIcon,
-  },
-  {
-    name: 'Privacy',
-    href: '/privacy',
-    description: 'Privacy details for this site.',
-    icon: LockClosedIcon,
   },
 ]
 
