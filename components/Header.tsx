@@ -35,10 +35,7 @@ const Header = () => {
         </Link>
       </div>
       <div className="flex items-center leading-5 space-x-4 sm:space-x-6">
-        <a
-          href="/"
-          className="text-indigo-400 hover:text-purple-400 dark:text-indigo-300 dark:hover:text-purple-300"
-        >
+        <a href="/" className="text-indigo-400 hover:text-purple-400 dark:text-indigo-300 dark:hover:text-purple-300">
           <HomeIcon className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
           <span className="sr-only">Home</span>
         </a>
