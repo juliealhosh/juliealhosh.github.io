@@ -5,7 +5,7 @@ import Header from '@/components/Header'
 import SectionContainer from '@/components/SectionContainer'
 import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
-import { ThemeProviders } from './theme-providers'
+import { ThemeProvider } from 'next-themes'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -50,13 +50,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={siteMetadata.language} className={`scroll-smooth`} suppressHydrationWarning>
-      <link rel="icon" href="/static/favicons/favicon.ico" />
-      <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
-      <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
-      {/* <link rel="alternate" type="application/rss+xml" href="/feed.xml" /> */}
-      <body className="mocha bg-slate-50 dark:bg-crust text-text antialiased">
-        <ThemeProviders>
+    <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
+      <html lang={siteMetadata.language} className={`scroll-smooth`} suppressHydrationWarning>
+        <link rel="icon" href="/static/favicons/favicon.ico" />
+        {/* <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
+        <link rel="alternate" type="application/rss+xml" href="/feed.xml" /> */}
+        <body className="mocha bg-slate-50 dark:bg-crust text-text antialiased">
           <SectionContainer>
             <div className="flex h-screen flex-col justify-between font-sans">
               {/* <SearchProvider searchConfig={siteMetadata.search as SearchConfig}> */}
@@ -66,8 +66,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Footer />
             </div>
           </SectionContainer>
-        </ThemeProviders>
-      </body>
-    </html>
+        </body>
+      </html>
+    </ThemeProvider>
   )
 }
