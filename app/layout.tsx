@@ -5,7 +5,7 @@ import Header from '@/components/Header'
 import SectionContainer from '@/components/SectionContainer'
 import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
-import { ThemeProvider } from 'next-themes'
+import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang={siteMetadata.language} className={`scroll-smooth`} suppressHydrationWarning>
       <link rel="icon" href="/static/favicons/favicon.ico" />
-      <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
+      <ThemeProviders>
         <body className="mocha bg-slate-50 dark:bg-crust text-text antialiased">
           <SectionContainer>
             <div className="flex h-screen flex-col justify-between font-sans">
@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </SectionContainer>
         </body>
-      </ThemeProvider>
+      </ThemeProviders>
     </html>
   )
 }
