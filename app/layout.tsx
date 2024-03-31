@@ -30,22 +30,22 @@ export const metadata: Metadata = {
   //     'application/rss+xml': `${siteMetadata.siteUrl}/feed.xml`,
   //   },
   // },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  twitter: {
-    title: siteMetadata.title,
-    card: 'summary_large_image',
-    images: [siteMetadata.socialBanner],
-  },
+  // robots: {
+  //   index: true,
+  //   follow: true,
+  //   googleBot: {
+  //     index: true,
+  //     follow: true,
+  //     'max-video-preview': -1,
+  //     'max-image-preview': 'large',
+  //     'max-snippet': -1,
+  //   },
+  // },
+  // twitter: {
+  //   title: siteMetadata.title,
+  //   card: 'summary_large_image',
+  //   images: [siteMetadata.socialBanner],
+  // },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         href="https://github.com/juliealhosh/blob/main/public/static/favicons/favicon.ico"
       />
       <ThemeProviders>
-        <body className="mocha bg-slate-50 dark:bg-crust text-text antialiased">
+        <body className="bg-slate-50 dark:bg-crust text-text antialiased">
           <SectionContainer>
             <div className="flex h-screen flex-col justify-between font-sans">
               <Header />
