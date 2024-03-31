@@ -16,9 +16,6 @@ This website was built on top of [ReLive27's blog'](https://github.com/ReLive27/
     <h1 className="mt-2 text-3xl text-indigo-950 dark:text-slate-50 font-bold tracking-tight sm:text-4xl">
       Site Details
     </h1>
-    <blockquote className="mt-6 text-indigo-950 dark:text-slate-50">
-      Last reviewed: 2024-03-27
-    </blockquote>
     <h2 className="mt-6 text-2xl text-indigo-950 dark:text-slate-50 font-bold tracking-tight sm:text-3xl">
       Licensing
     </h2>
@@ -59,5 +56,8 @@ This website was built on top of [ReLive27's blog'](https://github.com/ReLive27/
       </a>
       .
     </p>
+    <blockquote className="mt-6 text-indigo-950 dark:text-slate-50">
+      Last reviewed: 2024-03-27
+    </blockquote>
   </div>
 </div>
