@@ -7,9 +7,9 @@ const siteMetadata = {
   language: 'en-ca',
   theme: 'system', // system, dark or light
   siteUrl: 'https://juliealhosh.github.io',
-  image: '/static/images/avatar.png',
-  siteLogo: '/static/images/logo.png',
-  socialBanner: '/static/images/banner.png',
+  image: 'https://github.com/juliealhosh/blob/main/public/static/images/avatar.png',
+  siteLogo: 'https://github.com/juliealhosh/blob/main/public/static/images/logo.png',
+  socialBanner: 'https://github.com/juliealhosh/blob/main/public/static/images/banner.png',
   email: 'juliealhosh@gmail.com',
   github: 'https://github.com/juliealhosh',
   linkedin: 'https://linkedin.com/in/julie-alhosh',
