@@ -15,7 +15,7 @@ const projectsData: Project[] = [
   {
     title: "Bird's Eye View (BEV)",
     description: `I collaborated on a computer vision project where we developed and implemented a method to generate a Bird's Eye View (BEV) image of a scene. Our approach involved detecting vanishing points, calculating homography for each image, and stitching the sequence of resulting BEV images into a single BEV of the scene. This technique provides a comprehensive overhead perspective, applicable in various fields such as autonomous vehicles and surveillance`,
-    imgSrc: 'h/static/images/projects/BEV.png',
+    imgSrc: '/static/images/projects/BEV.png',
     href: '/static/BEV.pdf',
   },
   {

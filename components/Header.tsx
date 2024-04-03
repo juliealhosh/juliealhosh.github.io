@@ -25,7 +25,7 @@ const Header = () => {
               </div>
             </div>
             {typeof siteMetadata.headerTitle === 'string' ? (
-              <div className="hidden h-6 text-2xl text-indigo-950 dark:text-slate-50 font-semibold sm:block">
+              <div className="hidden h-6 text-2xl text-gray-900 hover:text-violet-400 dark:text-gray-200 dark:hover:text-violet-200 font-semibold sm:block">
                 {siteMetadata.headerTitle}
               </div>
             ) : (
@@ -37,7 +37,7 @@ const Header = () => {
       <div className="flex items-center leading-5 space-x-4 sm:space-x-6">
         <a
           href="/"
-          className="text-indigo-400 hover:text-purple-400 dark:text-indigo-300 dark:hover:text-purple-300"
+          className="text-gray-900 hover:text-violet-400 dark:text-gray-200 dark:hover:text-violet-200"
         >
           <HomeIcon className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
           <span className="sr-only">Home</span>
@@ -48,7 +48,7 @@ const Header = () => {
             <Link
               key={link.title}
               href={link.href}
-              className="hidden sm:block font-medium font-semibold text-indigo-400 hover:text-purple-400 dark:text-indigo-300 dark:hover:text-purple-300"
+              className="hidden sm:block font-medium font-semibold text-gray-900 hover:text-violet-400 dark:text-gray-200 dark:hover:text-violet-200"
             >
               {link.title}
             </Link>
