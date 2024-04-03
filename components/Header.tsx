@@ -5,7 +5,7 @@ import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import { HomeIcon } from '@heroicons/react/20/solid'
 // import SearchButton from './SearchButton'
-import Image from 'next/image'
+import Image from './Image'
 
 const Header = () => {
   return (
