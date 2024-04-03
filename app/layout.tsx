@@ -51,10 +51,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang={siteMetadata.language} className={`scroll-smooth`} suppressHydrationWarning>
-      <link
-        rel="icon"
-        href="h/static/favicons/favicon.ico"
-      />
+      <link rel="icon" href="h/static/favicons/favicon.ico" />
       <ThemeProviders>
         <body className="bg-slate-50 dark:bg-crust text-text antialiased">
           <SectionContainer>
