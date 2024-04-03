@@ -86,6 +86,11 @@ module.exports = () => {
 
 const nextConfig = {
   distDir: "build",
+  images: {
+    loader: "custom",
+    loaderFile: './ImageLoader.js',
+    unoptimized: true
+  },
 };
 
 module.exports = nextConfig;
