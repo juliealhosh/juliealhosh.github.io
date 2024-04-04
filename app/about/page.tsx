@@ -53,7 +53,7 @@ export default function Page() {
             </h2>
           </div>
           <div className="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">
-            <p className="mt-8">
+            <div className="mt-8">
               <p className="mt-8 mb-4 text-gray-900 dark:text-gray-50">
                 👋 Hi! I'm Julie, a dedicated Machine Learning (ML) and Reinforcement Learning (RL)
                 researcher pursuing an MSc in Computer Science at McGill University under the
@@ -88,9 +88,9 @@ export default function Page() {
               <div className="group relative">
                 <div className="animate-tilt absolute -inset-0.5 rounded-t-lg bg-gradient-to-r from-gray-600 to-gray-300 opacity-50 blur transition "></div>
                 <span className="relative flex  divide-x divide-gray-600 rounded-t-lg bg-gray-50 dark:bg-gray-950 px-4 py-4 leading-none">
-                  <h2 className="mt-0 mb-0 text-2xl font-semibold !text-gray-900 dark:!text-gray-50">
+                  <span className="mt-0 mb-0 text-2xl font-semibold !text-gray-900 dark:!text-gray-50">
                     💻 Skills
-                  </h2>
+                  </span>
                 </span>
                 <span className="relative flex  divide-x divide-gray-600 rounded-b-lg bg-gray-50 dark:bg-gray-950 px-4 py-4 leading-none">
                   <div className="mb-2 flex flex-wrap">
@@ -230,7 +230,7 @@ export default function Page() {
                   </div>
                 </span>
               </div>
-            </p>
+            </div>
           </div>
         </div>
       </div>

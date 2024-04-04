@@ -88,8 +88,9 @@ const nextConfig = {
   distDir: "build",
   images: {
     loader: "custom",
-    loaderFile: './ImageLoader.js',
-    unoptimized: true
+    loaderFile: './components/ImageLoader.js',
+    domains: ['/static/favicons', 'static/images'],
+    unoptimized: true,
   },
 };
 
