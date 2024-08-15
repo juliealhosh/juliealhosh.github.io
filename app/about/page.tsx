@@ -40,7 +40,7 @@ export default function Page() {
                 <div className="animate-tilt absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 opacity-50 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
                 <a
                   className="!font-semibold !text-gray-900 !no-underline dark:!text-gray-50"
-                  href="/static/cv.pdf"
+                  href="/static/CV.pdf"
                   target="_blank"
                   rel="noreferrer"
                 >
