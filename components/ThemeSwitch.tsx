@@ -38,7 +38,6 @@ const ThemeSwitch = () => {
       </svg>
     </button>
   )
-
 }
 
 export default ThemeSwitch
