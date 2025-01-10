@@ -1,5 +1,5 @@
 import { genPageMetadata } from 'app/seo'
-import GitHubCalendar, { ThemeInput } from 'react-github-calendar'
+// import GitHubCalendar, { ThemeInput } from 'react-github-calendar'
 import Link from 'next/link'
 import { RoughNotation } from 'react-rough-notation'
 import siteMetadata from '@/data/siteMetadata'
@@ -8,10 +8,10 @@ import Image from 'next/image'
 
 export const metadata = genPageMetadata({ title: 'About' })
 
-const minimalTheme: ThemeInput = {
-  light: ['#313244', '#cba6f7'],
-  dark: ['#313244', '#cba6f7'],
-}
+// const minimalTheme: ThemeInput = {
+//   light: ['#313244', '#cba6f7'],
+//   dark: ['#313244', '#cba6f7'],
+// }
 
 export default function Page() {
   return (

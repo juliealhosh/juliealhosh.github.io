@@ -19,14 +19,17 @@ const layouts = {
   PostLayout,
   PostBanner,
 }
-
+type Params = Promise<{ slug: string[] }>
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string[] }
+  params: Params
 }): Promise<Metadata | undefined> {
-  const slug = decodeURI(params.slug.join('/'))
-  const post = allBlogs.find((p) => p.slug === slug)
+  const { slug } = await params
+  const slugString = slug.join('/') // Convert slug array to a string
+  // const slug = decodeURI(params.slug)
+  // const post = allBlogs.find((p) => p.slug === slug)
+  const post = allBlogs.find((p) => p.slug === slugString)
   const authorList = post?.authors || ['default']
   const authorDetails = authorList.map((author) => {
     const authorResults = allAuthors.find((p) => p.slug === author)
@@ -79,11 +82,13 @@ export const generateStaticParams = async () => {
   return paths
 }
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
-  const slug = decodeURI(params.slug.join('/'))
+export default async function Page({ params }: { params: Params }) {
+  // const slug = decodeURI(params.slug)
+  const { slug } = await params
+  const slugString = slug.join('/') // Convert slug array to a string
   // Filter out drafts in production
   const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
-  const postIndex = sortedCoreContents.findIndex((p) => p.slug === slug)
+  const postIndex = sortedCoreContents.findIndex((p) => p.slug === slugString)
   if (postIndex === -1) {
     return (
       <div className="mt-24 text-center">
@@ -99,7 +104,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
   const prev = sortedCoreContents[postIndex + 1]
   const next = sortedCoreContents[postIndex - 1]
-  const post = allBlogs.find((p) => p.slug === slug) as Blog
+  const post = allBlogs.find((p) => p.slug === slugString) as Blog
   const authorList = post?.authors || ['default']
   const authorDetails = authorList.map((author) => {
     const authorResults = allAuthors.find((p) => p.slug === author)
