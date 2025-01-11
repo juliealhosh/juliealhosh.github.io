@@ -27,6 +27,7 @@ export default function Page() {
             <Image src={siteMetadata.image} alt="image" width={150} height={150} />
             <div className="mt-8 mb-8 flex space-x-4">
               <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
+              <SocialIcon kind="googlescholar" href={siteMetadata.googlescholar} size={6} />
               <SocialIcon kind="github" href={siteMetadata.github} size={6} />
               <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
             </div>

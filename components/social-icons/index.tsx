@@ -2,6 +2,7 @@
 // import Chemistry from './chemistry.svg'
 import {
   Mail,
+  Googlescholar,
   Github,
   // Youtube,
   Linkedin,
@@ -14,6 +15,7 @@ import {
 
 const components = {
   mail: Mail,
+  googlescholar: Googlescholar,
   github: Github,
   // youtube: Youtube,
   linkedin: Linkedin,

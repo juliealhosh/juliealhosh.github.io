@@ -11,6 +11,7 @@ const siteMetadata = {
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/banner.png',
   email: 'juliealhosh@gmail.com',
+  googlescholar: 'https://scholar.google.com/citations?user=tuaOcIYAAAAJ',
   github: 'https://github.com/juliealhosh',
   linkedin: 'https://linkedin.com/in/julie-alhosh',
   locale: 'en-CA',

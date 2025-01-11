@@ -33,19 +33,19 @@ module.exports = {
         DEFAULT: {
           css: {
             a: {
-              color: '#a6e3a1',
+              color: '#996699',
               '&:hover': {
-                color: '#94e2d5',
+                color: '#993399',
               },
             },
             'h1,h3,h4,h5,h6': {
-              color: '#89dceb',
+              color: '#6699cc',
             },
             h2: {
-              color: '#f9e2af',
+              color: '#6666cc',
             },
             code: {
-              color: '#fab387',
+              color: '#FFABAB',
             },
             body: {
               color: '#cdd6f4',

@@ -8,6 +8,7 @@ export default function Footer() {
       <div className="mt-16 flex flex-col items-center">
         <div className="mb-6 flex space-x-4">
           <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
+          <SocialIcon kind="googlescholar" href={siteMetadata.googlescholar} size={6} />
           <SocialIcon kind="github" href={siteMetadata.github} size={6} />
           <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
           {/* <SocialIcon kind="mastodon" href={siteMetadata.mastodon} size={6} />

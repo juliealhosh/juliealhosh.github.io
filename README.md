@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Logo" src="/static/images/logo.png" width="100px" />
+  <img alt="Logo" src="/public/static/images/logo.png" width="100px" />
 </div>
 <h1 align="center">
   <a href="https://juliealhosh.github.io/" style="text-decoration: none;color: black">juliealhosh.github.io</a>

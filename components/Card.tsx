@@ -10,7 +10,7 @@ const Card = ({ title, description, imgSrc, href }) => (
     >
       {imgSrc &&
         (href ? (
-          <Link href={href} aria-label={`Link to ${title}`}>
+          <a href={href} aria-label={`Link to ${title}`}>
             <Image
               alt={title}
               src={imgSrc}
@@ -18,7 +18,7 @@ const Card = ({ title, description, imgSrc, href }) => (
               width={544}
               height={306}
             />
-          </Link>
+          </a>
         ) : (
           <Image
             alt={title}
@@ -31,9 +31,10 @@ const Card = ({ title, description, imgSrc, href }) => (
       <div className="p-6">
         <h2 className="mb-3 text-gray-900 text-2xl font-bold leading-8 tracking-tight dark:text-gray-50">
           {href ? (
-            <Link href={href} aria-label={`Link to ${title}`}>
+            // changed the following link so that it opens in the same tab
+            <a href={href} aria-label={`Link to ${title}`}>
               {title}
-            </Link>
+            </a>
           ) : (
             title
           )}
