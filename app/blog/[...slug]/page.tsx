@@ -8,6 +8,7 @@ import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer
 import { allBlogs, allAuthors } from 'contentlayer/generated'
 import type { Authors, Blog } from 'contentlayer/generated'
 import PostSimple from '@/layouts/PostSimple'
+import PostProject from '@/layouts/PostProject'
 import PostLayout from '@/layouts/PostLayout'
 import PostBanner from '@/layouts/PostBanner'
 import { Metadata } from 'next'
@@ -16,6 +17,7 @@ import siteMetadata from '@/data/siteMetadata'
 const defaultLayout = 'PostLayout'
 const layouts = {
   PostSimple,
+  PostProject,
   PostLayout,
   PostBanner,
 }
@@ -27,8 +29,6 @@ export async function generateMetadata({
 }): Promise<Metadata | undefined> {
   const { slug } = await params
   const slugString = slug.join('/') // Convert slug array to a string
-  // const slug = decodeURI(params.slug)
-  // const post = allBlogs.find((p) => p.slug === slug)
   const post = allBlogs.find((p) => p.slug === slugString)
   const authorList = post?.authors || ['default']
   const authorDetails = authorList.map((author) => {
@@ -83,7 +83,6 @@ export const generateStaticParams = async () => {
 }
 
 export default async function Page({ params }: { params: Params }) {
-  // const slug = decodeURI(params.slug)
   const { slug } = await params
   const slugString = slug.join('/') // Convert slug array to a string
   // Filter out drafts in production
