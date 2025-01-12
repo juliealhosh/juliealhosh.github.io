@@ -69,8 +69,8 @@ import { SVGProps } from 'react'
 
 export function Googlescholar(svgProps: SVGProps<SVGSVGElement>) {
   return (
-    <svg width="26px" height="26px" viewBox="0 0 26 26" role="img" xmlns="http://www.w3.org/2000/svg" {...svgProps}>
-      <path d="M13 26a7.583 7.583 0 1 1 0 -15.167 7.583 7.583 0 0 1 0 15.167m0 -26L0 10.292l5.241 4.268A8.667 8.667 0 0 1 13 9.75a8.667 8.667 0 0 1 7.759 4.81L26 10.292z"/>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" {...svgProps}>
+      <path d="M13 26a7.583 7.583 0 1 1 0 -15.167 7.583 7.583 0 0 1 0 15.167m0 -26L0 10.292l5.241 4.268A8.667 8.667 0 0 1 13 9.75a8.667 8.667 0 0 1 7.759 4.81L26 10.292z" />
     </svg>
   )
 }
