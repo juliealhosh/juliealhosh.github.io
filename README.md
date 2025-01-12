@@ -19,17 +19,6 @@ This website was built on top of [ReLive27's blog'](https://github.com/ReLive27/
     <h2 className="mt-6 text-2xl text-gray-900 dark:text-gray-50 font-bold tracking-tight sm:text-3xl">
       Licensing
     </h2>
-    <h4 className="mt-3 text-lg font-bold text-gray-900 dark:text-gray-50">Header</h4>
-    <p className="mt-3 leading-8 text-gray-900 dark:text-gray-50">
-      The animated sun and moon icons to switch site theme in the header were created by
-      <a
-        href="https://github.com/cyberalien/line-md"
-        className="text-gray-900 hover:text-purple-400 dark:hover:text-purple-300 dark:text-gray-50 "
-      >
-        Vjacheslav Trushkin
-      </a>
-      and are under an MIT license.
-    </p>
     <h4 className="mt-3 text-lg font-bold text-gray-900 dark:text-gray-50">
       Icons/Footer
     </h4>
@@ -43,21 +32,8 @@ This website was built on top of [ReLive27's blog'](https://github.com/ReLive27/
       </a>
       and are under a CC0 1.0 license.
     </p>
-    <h4 className="mt-3 text-lg font-bold text-gray-900 dark:text-gray-50 hover:text-purple-400 dark:hover:text-purple-300">
-      Site Icon and Banner
-    </h4>
-    <p className="mt-3 leading-8 text-gray-900 dark:text-gray-50">
-      Both the site icon and the banner were created using
-      <a
-        href="https://www.canva.com/"
-        className="text-gray-900 dark:text-gray-50 hover:text-purple-400 dark:hover:text-purple-300"
-      >
-        Canva
-      </a>
-      .
-    </p>
     <blockquote className="mt-6 text-gray-900 dark:text-gray-50">
-      Last reviewed: 2024-03-27
+      Last reviewed: 2025-01-11
     </blockquote>
   </div>
 </div>
