@@ -1,10 +1,10 @@
 import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
-import React from 'react';
+import React from 'react'
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear()
   return (
     <footer>
       <div className="mt-16 mb-16 flex flex-col items-center">
@@ -22,5 +22,5 @@ export default function Footer() {
         <p className="text-sm opacity-50">@{currentYear} Julie Alhosh</p>
       </div>
     </footer>
-  );
+  )
 }
