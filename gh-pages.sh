@@ -4,7 +4,7 @@
 find server/app -type f -name "*" -exec sed -i 's|/_next/static|/static|g' {} \;
 
 # Step 2: Move all .html files from "server/app" to the current directory
-find server/app -type f -name "*.html" -exec cp {} . \;
+find server/app -type f -name "*.html" -exec sh -c 'mkdir -p ./$(dirname {} | cut -d/ -f3) && cp {} ./$(dirname {} | cut -d/ -f3)' \;
 
 # Step 3: Download all files from the GitHub repository and install them into the "/static" subdirectory
 
