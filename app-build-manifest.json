@@ -19,7 +19,7 @@
       "static/chunks/fd9d1056-87da80e0c187477b.js",
       "static/chunks/117-8f74d75c5d651a98.js",
       "static/chunks/main-app-b3e3b4c7ee97f95e.js",
-      "static/css/79b17ef4bb846eb9.css",
+      "static/css/6384eaed4a3917dc.css",
       "static/chunks/972-3262c6c8d53b1757.js",
       "static/chunks/878-42ca3b4ca8f10e60.js",
       "static/chunks/app/layout-4400739bb18ca705.js"
@@ -38,8 +38,17 @@
       "static/chunks/117-8f74d75c5d651a98.js",
       "static/chunks/main-app-b3e3b4c7ee97f95e.js",
       "static/chunks/972-3262c6c8d53b1757.js",
-      "static/chunks/780-602952ec4c3cd307.js",
+      "static/chunks/780-94954f36df5cf5b0.js",
       "static/chunks/app/blog/page-f29fbe5cb63a4689.js"
+    ],
+    "/blog/page/[page]/page": [
+      "static/chunks/webpack-f2a1c2387a506648.js",
+      "static/chunks/fd9d1056-87da80e0c187477b.js",
+      "static/chunks/117-8f74d75c5d651a98.js",
+      "static/chunks/main-app-b3e3b4c7ee97f95e.js",
+      "static/chunks/972-3262c6c8d53b1757.js",
+      "static/chunks/780-94954f36df5cf5b0.js",
+      "static/chunks/app/blog/page/[page]/page-9df0eb104675e295.js"
     ],
     "/projects/page": [
       "static/chunks/webpack-f2a1c2387a506648.js",
@@ -49,22 +58,13 @@
       "static/chunks/878-42ca3b4ca8f10e60.js",
       "static/chunks/app/projects/page-8a5335df5bd74062.js"
     ],
-    "/blog/page/[page]/page": [
-      "static/chunks/webpack-f2a1c2387a506648.js",
-      "static/chunks/fd9d1056-87da80e0c187477b.js",
-      "static/chunks/117-8f74d75c5d651a98.js",
-      "static/chunks/main-app-b3e3b4c7ee97f95e.js",
-      "static/chunks/972-3262c6c8d53b1757.js",
-      "static/chunks/780-602952ec4c3cd307.js",
-      "static/chunks/app/blog/page/[page]/page-9df0eb104675e295.js"
-    ],
     "/tags/[tag]/page": [
       "static/chunks/webpack-f2a1c2387a506648.js",
       "static/chunks/fd9d1056-87da80e0c187477b.js",
       "static/chunks/117-8f74d75c5d651a98.js",
       "static/chunks/main-app-b3e3b4c7ee97f95e.js",
       "static/chunks/972-3262c6c8d53b1757.js",
-      "static/chunks/780-602952ec4c3cd307.js",
+      "static/chunks/780-94954f36df5cf5b0.js",
       "static/chunks/app/tags/[tag]/page-9cb99bdfbba79f25.js"
     ],
     "/tags/page": [
