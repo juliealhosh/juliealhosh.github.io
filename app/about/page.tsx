@@ -24,7 +24,7 @@ export default function Page() {
         </div>
         <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
           <div className="flex flex-col items-center pt-8">
-            <Image src={siteMetadata.image} alt="image" width={150} height={150} />
+            <Image src={siteMetadata.image} alt="image" width={250} height={250} />
             <div className="mt-8 mb-8 flex space-x-4">
               <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
               <SocialIcon kind="googlescholar" href={siteMetadata.googlescholar} size={6} />
@@ -119,9 +119,9 @@ export default function Page() {
                     <span
                       className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
                       style={{ background: '#D82C20' }}
-                      key="ROS"
+                      key="ROS/ROS2"
                     >
-                      ROS
+                      ROS/ROS2
                     </span>
                     <span
                       className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
