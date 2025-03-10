@@ -5,7 +5,7 @@ find build server -type f -name "*.html" -exec sed -i 's|/_next/static|/static|g
 
 
 # Step 2: Copy all files and subdirectories from "server/app" to the home directory
-cp -r server/app/* ~/
+cp -r server/app/* ./
 mv sitemap.xml.body sitemap.xml
 # Step 3: Download all files from the GitHub repository and install them into the "/static" subdirectory
 
@@ -22,7 +22,8 @@ mv temp_repo/public/static/* ./static/
 rm -rf temp_repo
 
 # Step 4: commit and push updated files to the GitHub repository
-git add .
+git add server/ *.html *.meta *.rsc about/ blog/ *.json *.js projects/ *.body robots.txt/ sitemap.xml/ static/ tags/ _not-found/
 git commit -m "gh-pages.sh update"
 
+echo "Don't forget <git push>"
 echo "Script execution complete."
