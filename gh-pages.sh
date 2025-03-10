@@ -1,6 +1,4 @@
 #!/bin/bash
-# update cv with the arxiv link
-#  update the project with arxiv link projectsData.ts
 
 # Step 1: Replace "/_next/static" with "/static" in all .html files in "server/app"
 find build server -type f -name "*.html" -exec sed -i 's|/_next/static|/static|g' {} \;
