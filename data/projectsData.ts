@@ -7,10 +7,15 @@ interface Project {
 
 const projectsData: Project[] = [
   {
+    title: 'Tractable Representations for Convergent Approximation of Distributional HJB Equations',
+    description: `I worked on a project in continuous-time distributional reinforcement learning. This is the link to the paper on arXiv. This paper was accepted to RLDM 2025.`,
+    imgSrc: '/static/images/projects/rldm.png',
+    href: 'https://arxiv.org/abs/2503.05563',
+  },
+  {
     title: 'Topological mapping for traversability-aware long-range navigation in off-road terrain',
-    description: `I collaborated on a project in off-road mapless navigation. This is the link to the paper on arXiv`,
-    imgSrc:
-      '/static/images/projects/Topological_mapping_for_traversability-aware_long-range_navigation_in_off-road_terrain.png',
+    description: `I collaborated on a project in off-road mapless navigation. This is the link to the paper on arXiv. This paper was accepted to ICRA 2025.`,
+    imgSrc: '/static/images/projects/Topological_mapping_for_traversability-aware_long-range_navigation_in_off-road_terrain.png',
     href: 'https://arxiv.org/abs/2410.01925',
   },
   {
