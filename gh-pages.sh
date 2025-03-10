@@ -10,12 +10,14 @@ mv sitemap.xml.body sitemap.xml
 
 # Create /static directory if it doesn't exist
 mkdir -p ./static
+mkdir -p _next/static
 
 # Clone the repository's public/static folder into the /static directory
 git clone --depth 1 --branch main https://github.com/juliealhosh/juliealhosh.github.io.git temp_repo
 
 # Move the files from the cloned repo's "public/static" folder into your current /static directory
 mv temp_repo/public/static/* ./static/
+cp -r static/* _next/static/
 
 # Clean up by removing the temporary cloned repository
 rm -rf temp_repo
