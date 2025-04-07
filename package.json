@@ -1,11 +1,9 @@
 {
   "name": "julie-alhosh",
   "version": "2.0.2",
-  "homepage": "https://juliealhosh.github.io/juliealhosh.github.io",
+  "homepage": "https://juliealhosh.github.io",
   "private": true,
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "next dev",
     "dev": "cross-env INIT_CWD=$PWD next dev",
     "build": "contentlayer build && cross-env INIT_CWD=$PWD next build",
@@ -60,7 +58,6 @@
     "eslint-config-next": "^14",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "gh-pages": "^6.1.1",
     "husky": "^8.0.0",
     "lint-staged": "^13.0.0",
     "prettier": "^3.0.0",
