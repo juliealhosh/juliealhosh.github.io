@@ -87,9 +87,6 @@ module.exports = () => {
 const nextConfig = {
   distDir: "build",
   images: {
-    loader: "custom",
-    loaderFile: './components/ImageLoader.js',
-    domains: ['/static/favicons', 'static/images'],
     unoptimized: true,
   },
 };

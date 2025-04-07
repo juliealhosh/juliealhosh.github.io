@@ -1,23 +1,35 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from './Link'
 import headerNavLinks from '@/data/headerNavLinks'
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+
+  // Handle the body overflow style only on the client side
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (mounted) {
+      if (navShow) {
+        document.body.style.overflow = 'hidden'
+      } else {
+        document.body.style.overflow = 'auto'
+      }
+    }
+  }, [navShow, mounted])
+
 
   const onToggleNav = () => {
-    setNavShow((status) => {
-      if (status) {
-        document.body.style.overflow = 'auto'
-      } else {
-        // Prevent scrolling
-        document.body.style.overflow = 'hidden'
-      }
-      return !status
-    })
+    setNavShow((status) => !status)
   }
+
+  if (!mounted) return null // Prevent rendering before client-side mount
 
   return (
     <>

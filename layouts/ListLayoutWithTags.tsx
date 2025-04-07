@@ -75,6 +75,8 @@ export default function ListLayoutWithTags({
 
   const displayPosts = initialDisplayPosts.length > 0 ? initialDisplayPosts : posts
 
+  const currentTag = pathname.split('/tags/')[1] // Extract current tag once
+
   return (
     <>
       <div>
@@ -86,7 +88,7 @@ export default function ListLayoutWithTags({
         <div className="flex sm:space-x-24">
           <div className="hidden max-h-screen h-full sm:flex flex-wrap bg-suface0 dark:bg-gray-900/50 shadow-xl pt-5 dark:shadow-gray-800/50 rounded min-w-[280px] max-w-[280px] overflow-auto">
             <div className="py-4 px-6">
-              {pathname.startsWith('/blog') ? (
+              {pathname.includes('/blog') ? ( // Simplified check
                 <h3 className="text-pink font-bold uppercase">All Posts</h3>
               ) : (
                 <Link
@@ -98,21 +100,17 @@ export default function ListLayoutWithTags({
               )}
               <ul>
                 {sortedTags.map((t) => {
+                  const isActive = currentTag === slug(t)
                   return (
                     <li key={t} className="my-3">
-                      {pathname.split('/tags/')[1] === slug(t) ? (
-                        <h3 className="inline py-2 px-3 uppercase text-sm font-bold text-cyan">
-                          {`${t} (${tagCounts[t]})`}
-                        </h3>
-                      ) : (
-                        <Link
-                          href={`/tags/${slug(t)}`}
-                          className="py-2 px-3 uppercase text-sm font-medium text-text hover:text-cyan"
-                          aria-label={`View posts tagged ${t}`}
-                        >
-                          {`${t} (${tagCounts[t]})`}
-                        </Link>
-                      )}
+                      <Link
+                        href={`/tags/${slug(t)}`}
+                        className={`py-2 px-3 uppercase text-sm font-medium ${isActive ? 'text-cyan font-bold' : 'text-text hover:text-cyan'}`}
+                        aria-label={`View posts tagged ${t}`}
+                        aria-current={isActive ? 'page' : undefined} // Improved accessibility
+                      >
+                        {`${t} (${tagCounts[t]})`}
+                      </Link>
                     </li>
                   )
                 })}
