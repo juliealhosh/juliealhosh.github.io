@@ -8,7 +8,6 @@ const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
   const [mounted, setMounted] = useState(false)
 
-
   // Handle the body overflow style only on the client side
   useEffect(() => {
     setMounted(true)
@@ -23,7 +22,6 @@ const MobileNav = () => {
       }
     }
   }, [navShow, mounted])
-
 
   const onToggleNav = () => {
     setNavShow((status) => !status)

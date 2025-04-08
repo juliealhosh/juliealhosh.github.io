@@ -1,12 +1,10 @@
 #!/bin/bash
 
-# Step 1: Replace "/_next/static" with "/static" in all .html files in "server/app"
-find build server -type f -name "*.html" -exec sed -i 's|/_next/static|/static|g' {} \;
-
+# Step 1: Replace "/_next/static" with "/static" in all server/ and build/ 
+find server build -type f -exec sed -i 's|/_next/static|/static|g' {} \;
 
 # Step 2: Copy all files and subdirectories from "server/app" to the home directory
 cp -r server/app/* ./
-mv sitemap.xml.body sitemap.xml
 # Step 3: Download all files from the GitHub repository and install them into the "/static" subdirectory
 
 # Create /static directory if it doesn't exist
@@ -21,9 +19,9 @@ mv temp_repo/public/static/* ./static/
 # Clean up by removing the temporary cloned repository
 rm -rf temp_repo
 
+find static -type f -exec sed -i 's|/_next/static|/static|g' {} \;
 # Step 4: commit and push updated files to the GitHub repository
-git add server/ *.html *.meta *.rsc about/ blog/ *.json *.js projects/ *.body robots.txt/ sitemap.xml/ static/ tags/ _not-found/
+git add server/ *.html *.meta *.rsc about/ blog/ *.json *.js projects/ *.body robots.txt/ sitemap.xml/ static/ tags/ _not-found/ gh-pages.sh
 git commit -m "gh-pages.sh update"
 
-echo "Don't forget <git push>"
 echo "Script execution complete."
