@@ -4,7 +4,7 @@
   "homepage": "https://juliealhosh.github.io",
   "private": true,
   "scripts": {
-    "predeploy": "npm build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "next dev",
     "dev": "cross-env INIT_CWD=$PWD next dev",
