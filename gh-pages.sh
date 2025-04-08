@@ -21,7 +21,7 @@ rm -rf temp_repo
 
 find static -type f -exec sed -i 's|/_next/static|/static|g' {} \;
 # Step 4: commit and push updated files to the GitHub repository
-git add server/ *.html *.meta *.rsc about/ blog/ *.json *.js projects/ *.body robots.txt/ sitemap.xml/ static/ tags/ _not-found/ gh-pages.sh
+git add server/ *.html *.meta *.rsc about/ blog/ *.json *.js projects/ *.body robots.txt/ sitemap.xml/ static/ tags/ _not-found/ build/
 git commit -m "gh-pages.sh update"
 
 echo "Script execution complete."
