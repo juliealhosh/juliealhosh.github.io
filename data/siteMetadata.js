@@ -15,8 +15,9 @@ const siteMetadata = {
   github: 'https://github.com/juliealhosh',
   linkedin: 'https://linkedin.com/in/julie-alhosh',
   locale: 'en-CA',
-  occupation: 'Member of the Mobile Robotics Lab (MRL)',
-  company: 'Centre for Intelligent Machines at McGill',
+  occupation: 'AI Developper',
+  company: 'Vention',
+  companyLink: 'https://vention.io',
   search: {
     provider: 'kbar',
     kbarConfig: {

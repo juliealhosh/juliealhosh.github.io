@@ -11,12 +11,11 @@ export default function Home() {
     <>
       <div className="fade-in banner flex flex-1 flex-row flex-wrap justify-between px-6 py-10 dark:text-gray-50 lg:px-10">
         <div className="flex flex-col justify-center">
-          <h1 className="text-3xl text-gray-900 font-bold dark:text-gray-50 lg:text-5xl">
+          <h1 className="text-5xl text-gray-900 font-bold dark:text-gray-50 lg:text-5xl">
             {siteMetadata.author}
           </h1>
-          <p className="my-2 text-gray-900 lg:my-4 lg:text-2xl dark:text-gray-50">
-            Member of the Mobile Robotics Lab <br /> of the Centre for Intelligent Machines <br />
-            at McGill University
+          <p className="my-2 text-gray-900 lg:my-4 lg:text-4xl dark:text-gray-50">
+            {siteMetadata.occupation} at {siteMetadata.company}
           </p>
         </div>
 

@@ -1,7 +1,7 @@
 import { genPageMetadata } from 'app/seo'
 // import GitHubCalendar, { ThemeInput } from 'react-github-calendar'
-import Link from 'next/link'
-import { RoughNotation } from 'react-rough-notation'
+// import Link from 'next/link'
+// import { RoughNotation } from 'react-rough-notation'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
 import Image from 'next/image'
@@ -24,7 +24,7 @@ export default function Page() {
         </div>
         <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
           <div className="flex flex-col items-center pt-8">
-            <Image src={siteMetadata.image} alt="image" width={250} height={250} />
+            <Image src={siteMetadata.image} alt="image" width={200} height={200} />
             <div className="mt-8 mb-8 flex space-x-4">
               <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
               <SocialIcon kind="googlescholar" href={siteMetadata.googlescholar} size={6} />
@@ -34,8 +34,9 @@ export default function Page() {
             <h3 className="pt-4 pb-2 text-2xl text-gray-900 dark:text-gray-50 font-bold leading-8 tracking-tight">
               {siteMetadata.author}
             </h3>
-            <h5 className="text-gray-500 dark:text-gray-400">{siteMetadata.occupation}</h5>
-            <h5 className="text-gray-500 dark:text-gray-400">{siteMetadata.company}</h5>
+            <h5 className="text-gray-500 text-xl dark:text-gray-400">
+              {siteMetadata.occupation} at {siteMetadata.company}
+            </h5>
             <h2 className="mt-8 mb-4 text-2xl text-gray-900 font-semibold dark:text-gray-50">
               <div className="group relative">
                 <div className="animate-tilt absolute -inset-0.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 opacity-50 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
@@ -56,41 +57,22 @@ export default function Page() {
           <div className="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">
             <div className="mt-8">
               <p className="mt-8 mb-4 text-gray-900 dark:text-gray-50">
-                👋 Hi! I'm Julie, a dedicated Machine Learning (ML) and Reinforcement Learning (RL)
-                researcher pursuing an MSc in Computer Science at McGill University under the
-                guidance of Prof. David Meger. My expertise lies in RL, distributional RL,
-                continuous-time RL, optimal control, and robotics. Proficient in Python, C/C++, and
-                key ML libraries. I'm also working on a robotics research project using
-                <a
-                  className="px-1 !font-semibold !no-underline text-indigo-900 dark:text-gray-400 hover:text-purple-400 dark:hover:text-purple-300"
-                  href="https://bluerobotics.com/store/boat/blueboat/blueboat/"
-                >
-                  BlueBoat
-                </a>
-                . I'm passionate about bridging theory and practice in ML and RL and am open to
-                exciting career opportunities in this field.
+                👋 Hi! I'm Julie, a dedicated Machine Learning (ML), Reinforcement Learning (RL),
+                and robotics researcher with an MSc in Computer Science. I completed my master's at
+                McGill University under the guidance of Prof. David Meger. My expertise lies in RL,
+                distributional RL, continuous-time RL, and robotics. Proficient in Python, C/C++,
+                and key ML libraries. I'm passionate about bridging theory and practice in ML and
+                roboitcs.
               </p>
-              <div>
-                <ul>
-                  <li>
-                    <p className="mt-6 mb-4 text-gray-900 dark:text-gray-50">
-                      🚀 Currently working on a gym environment that simulates an autonomous surface
-                      vehicle equiped with a winch to reconstruct the map of a certain quality of
-                      interset
-                    </p>
-                  </li>
-                  <li>
-                    <p className="mt-4 mb-4 text-gray-900 dark:text-gray-50">
-                      💬 In my free time, I swim and watch stand-up comedy
-                    </p>
-                  </li>
-                </ul>
-              </div>
+              <p className="mt-4 mb-4 text-gray-900 dark:text-gray-50">
+                I'm currently working as an AI developer at Vention, using Physical AI to solve bin
+                picking challenges.
+              </p>
               <div className="group relative">
                 <div className="animate-tilt absolute -inset-0.5 rounded-t-lg bg-gradient-to-r from-gray-600 to-gray-300 opacity-50 blur transition "></div>
                 <span className="relative flex  divide-x divide-gray-600 rounded-t-lg bg-gray-50 dark:bg-gray-950 px-4 py-4 leading-none">
                   <span className="mt-0 mb-0 text-2xl font-semibold !text-gray-900 dark:!text-gray-50">
-                    💻 Skills
+                    💻 Technical Skills
                   </span>
                 </span>
                 <span className="relative flex  divide-x divide-gray-600 rounded-b-lg bg-gray-50 dark:bg-gray-950 px-4 py-4 leading-none">
@@ -115,6 +97,20 @@ export default function Page() {
                       key="C++"
                     >
                       C++
+                    </span>
+                    <span
+                      className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
+                      style={{ background: '#7676a4' }}
+                      key="HPC"
+                    >
+                      HPC
+                    </span>
+                    <span
+                      className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
+                      style={{ background: '#f778ae' }}
+                      key="OpenCV"
+                    >
+                      OpenCV
                     </span>
                     <span
                       className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
