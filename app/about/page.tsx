@@ -65,8 +65,8 @@ export default function Page() {
                 roboitcs.
               </p>
               <p className="mt-4 mb-4 text-gray-900 dark:text-gray-50">
-                I'm currently working as an AI developer at Vention, using Physical AI to solve bin
-                picking challenges.
+                I'm currently working as an AI developer in the Physical AI team at Vention, using
+                Foundation models to solve bin picking challenges.
               </p>
               <div className="group relative">
                 <div className="animate-tilt absolute -inset-0.5 rounded-t-lg bg-gradient-to-r from-gray-600 to-gray-300 opacity-50 blur transition "></div>
@@ -107,6 +107,27 @@ export default function Page() {
                     </span>
                     <span
                       className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
+                      style={{ background: '#339999' }}
+                      key="AWS"
+                    >
+                      AWS
+                    </span>
+                    <span
+                      className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
+                      style={{ background: '#4356b5' }}
+                      key="LaTeX"
+                    >
+                      LaTeX
+                    </span>
+                    <span
+                      className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
+                      style={{ background: '#FF9900' }}
+                      key="Git"
+                    >
+                      Git
+                    </span>
+                    <span
+                      className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
                       style={{ background: '#f778ae' }}
                       key="OpenCV"
                     >
@@ -128,13 +149,6 @@ export default function Page() {
                     </span>
                     <span
                       className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
-                      style={{ background: '#1699c4' }}
-                      key="Hydra"
-                    >
-                      Hydra
-                    </span>
-                    <span
-                      className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
                       style={{ background: '#D82C20' }}
                       key="NumPy"
                     >
@@ -149,10 +163,17 @@ export default function Page() {
                     </span>
                     <span
                       className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
-                      style={{ background: '#000000' }}
+                      style={{ background: '#2B35cB' }}
                       key="Matplotlib"
                     >
                       Matplotlib
+                    </span>
+                    <span
+                      className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
+                      style={{ background: ' #cc9900' }}
+                      key="SQL"
+                    >
+                      SQL
                     </span>
                     <span
                       className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
@@ -191,17 +212,10 @@ export default function Page() {
                     </span>
                     <span
                       className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
-                      style={{ background: '#912c0d' }}
-                      key="MATLAB"
+                      style={{ background: '#1699c4' }}
+                      key="Hydra"
                     >
-                      MATLAB
-                    </span>
-                    <span
-                      className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
-                      style={{ background: '#b8655f' }}
-                      key="OCaml"
-                    >
-                      OCaml
+                      Hydra
                     </span>
                     <span
                       className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
@@ -212,17 +226,17 @@ export default function Page() {
                     </span>
                     <span
                       className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
-                      style={{ background: '#4356b5' }}
-                      key="LaTeX"
+                      style={{ background: '#b8655f' }}
+                      key="OCaml"
                     >
-                      LaTeX
+                      OCaml
                     </span>
                     <span
                       className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
-                      style={{ background: '#FF9900' }}
-                      key="Git"
+                      style={{ background: '#912c0d' }}
+                      key="MATLAB"
                     >
-                      Git
+                      MATLAB
                     </span>
                   </div>
                 </span>
