@@ -1,4 +1,4 @@
-import { KBarButton } from 'pliny/search/KBarButton'
+import { KBarButton } from '@/components/kbar/KBarButton'
 
 const SearchButton = () => {
   const SearchButtonWrapper = KBarButton

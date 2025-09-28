@@ -1,18 +1,22 @@
 import 'css/prism.css'
 import 'katex/dist/katex.css'
 
+import fs from 'fs'
+import path from 'path'
+import { serialize } from 'next-mdx-remote/serialize'
+import MDXClientWrapper from '@/components/MDXClientWrapper'
 import PageTitle from '@/components/PageTitle'
 import { components } from '@/components/MDXComponents'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
-import { allBlogs, allAuthors } from 'contentlayer/generated'
-import type { Authors, Blog } from 'contentlayer/generated'
+import { getAllPosts, sortPosts, coreContent, allCoreContent } from '@/scripts/getPosts'
+import type { BlogPost } from '@/scripts/getPosts'
 import PostSimple from '@/layouts/PostSimple'
 import PostProject from '@/layouts/PostProject'
 import PostLayout from '@/layouts/PostLayout'
 import PostBanner from '@/layouts/PostBanner'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
+
+const blogDir = path.join(process.cwd(), 'data/blog')
 
 const defaultLayout = 'PostLayout'
 const layouts = {
@@ -21,36 +25,30 @@ const layouts = {
   PostLayout,
   PostBanner,
 }
-type Params = Promise<{ slug: string[] }>
+
+type Params = { slug: string[] }
+
 export async function generateMetadata({
   params,
 }: {
   params: Params
 }): Promise<Metadata | undefined> {
-  const { slug } = await params
-  const slugString = slug.join('/') // Convert slug array to a string
-  const post = allBlogs.find((p) => p.slug === slugString)
-  const authorList = post?.authors || ['default']
-  const authorDetails = authorList.map((author) => {
-    const authorResults = allAuthors.find((p) => p.slug === author)
-    return coreContent(authorResults as Authors)
-  })
-  if (!post) {
-    return
-  }
+  const slugString = params.slug.join('/')
+  const allPosts = getAllPosts()
+  const post = allPosts.find((p) => p.slug === slugString)
+  if (!post) return
 
   const publishedAt = new Date(post.date).toISOString()
   const modifiedAt = new Date(post.lastmod || post.date).toISOString()
-  const authors = authorDetails.map((author) => author.name)
-  let imageList = [siteMetadata.socialBanner]
-  if (post.images) {
-    imageList = typeof post.images === 'string' ? [post.images] : post.images
-  }
-  const ogImages = imageList.map((img) => {
-    return {
-      url: img.includes('http') ? img : siteMetadata.siteUrl + img,
-    }
-  })
+  const imageList = post.images
+    ? typeof post.images === 'string'
+      ? [post.images]
+      : post.images
+    : [siteMetadata.socialBanner]
+
+  const ogImages = imageList.map((img) => ({
+    url: img.includes('http') ? img : siteMetadata.siteUrl + img,
+  }))
 
   return {
     title: post.title,
@@ -65,34 +63,21 @@ export async function generateMetadata({
       modifiedTime: modifiedAt,
       url: './',
       images: ogImages,
-      authors: authors.length > 0 ? authors : [siteMetadata.author],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.summary,
-      images: imageList,
     },
   }
 }
 
-export const generateStaticParams = async () => {
-  const paths = allBlogs.map((p) => ({ slug: p.slug.split('/') }))
-
-  return paths
-}
-
 export default async function Page({ params }: { params: Params }) {
-  const { slug } = await params
-  const slugString = slug.join('/') // Convert slug array to a string
-  // Filter out drafts in production
-  const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
+  const slugString = params.slug.join('/')
+  const allPosts = getAllPosts()
+
+  const sortedCoreContents = allCoreContent(sortPosts(allPosts))
   const postIndex = sortedCoreContents.findIndex((p) => p.slug === slugString)
   if (postIndex === -1) {
     return (
       <div className="mt-24 text-center">
         <PageTitle>
-          Under Construction{' '}
+          Under Construction {}
           <span role="img" aria-label="roadwork sign">
             🚧
           </span>
@@ -103,32 +88,19 @@ export default async function Page({ params }: { params: Params }) {
 
   const prev = sortedCoreContents[postIndex + 1]
   const next = sortedCoreContents[postIndex - 1]
-  const post = allBlogs.find((p) => p.slug === slugString) as Blog
-  const authorList = post?.authors || ['default']
-  const authorDetails = authorList.map((author) => {
-    const authorResults = allAuthors.find((p) => p.slug === author)
-    return coreContent(authorResults as Authors)
-  })
+  const post = allPosts.find((p) => p.slug === slugString) as BlogPost
   const mainContent = coreContent(post)
-  const jsonLd = post.structuredData
-  jsonLd['author'] = authorDetails.map((author) => {
-    return {
-      '@type': 'Person',
-      name: author.name,
-    }
-  })
 
   const Layout = layouts[post.layout || defaultLayout]
 
+  // --- MDXRemote setup ---
+  const mdxPath = path.join(blogDir, `${slugString}.mdx`)
+  const source = fs.readFileSync(mdxPath, 'utf8')
+  const mdxSource = await serialize(source)
+
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
-        <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
-      </Layout>
-    </>
+    <Layout content={mainContent} next={next} prev={prev}>
+      <MDXClientWrapper mdxSource={mdxSource} components={components} />
+    </Layout>
   )
 }

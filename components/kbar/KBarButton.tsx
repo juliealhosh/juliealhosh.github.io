@@ -1,20 +1,14 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
-import { useKBar } from 'kbar'
+import React from 'react'
 
-/**
- * Button wrapper component that triggers the KBar modal on click.
- *
- * @return {*}
- */
 export const KBarButton = ({
   children,
-  ...rest
-}: DetailedHTMLProps<HTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) => {
-  const { query } = useKBar()
-
-  return (
-    <button {...rest} onClick={() => query.toggle()}>
-      {children}
-    </button>
-  )
-}
+  ...props
+}: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
+  <button
+    type="button"
+    className="rounded px-2 py-1 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none"
+    {...props}
+  >
+    {children}
+  </button>
+)
