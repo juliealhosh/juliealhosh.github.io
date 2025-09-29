@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
+import React from 'react'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),

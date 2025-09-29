@@ -35,7 +35,7 @@
       ],
       "@/scripts/*": [
         "scripts/*"
-      ],
+      ]
     },
     "plugins": [
       {
@@ -52,7 +52,8 @@
     "**/*.tsx",
     "**/*.json",
     ".next/types/**/*.ts",
-    "build/types/**/*.ts"
+    "build/types/**/*.ts",
+    "out/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

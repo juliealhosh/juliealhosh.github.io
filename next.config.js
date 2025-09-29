@@ -55,30 +55,38 @@ const securityHeaders = [
 /**
  * @type {import('next/dist/next-server/server/config').NextConfig}
  **/
-const nextConfig = withBundleAnalyzer({
-  reactStrictMode: true,
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  eslint: {
-    dirs: ['app', 'components', 'layouts', 'scripts'],
-  },
-  output: 'export',
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: securityHeaders,
-      },
-    ]
-  },
-  webpack: (config, options) => {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    })
+module.exports = () => {
+  const plugins = withBundleAnalyzer
+  return plugins.reduce((acc, next) => next(acc), {
+    reactStrictMode: true,
+    pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+    eslint: {
+      dirs: ['app', 'components', 'layouts', 'scripts'],
+    },
+    async headers() {
+      return [
+        {
+          source: '/(.*)',
+          headers: securityHeaders,
+        },
+      ]
+    },
+    webpack: (config, options) => {
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      })
 
-    return config
-  },
-})
+      return config
+    },
+  })
+}
 
-// Since withContentlayer was removed, the second module.exports is no longer wrapped.
+const nextConfig = {
+  distDir: "out",
+  images: {
+    unoptimized: true,
+  },
+};
+
 module.exports = nextConfig;
