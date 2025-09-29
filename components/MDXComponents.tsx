@@ -27,8 +27,12 @@ const Div = ({ children, style }) => {
   return <div style={style}> {children} </div>
 }
 
-const Img = ({ children, style }) => {
-  return <img style={style}> {children} </img>
+const Img = ({ src, width, children }) => {
+  return (
+    <Image src={src} width={width} alt="">
+      {children}
+    </Image>
+  )
 }
 
 // This component map tells MDX how to render specific HTML tags.

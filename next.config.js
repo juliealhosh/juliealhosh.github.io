@@ -61,6 +61,7 @@ const nextConfig = withBundleAnalyzer({
   eslint: {
     dirs: ['app', 'components', 'layouts', 'scripts'],
   },
+  output: 'export',
   async headers() {
     return [
       {
