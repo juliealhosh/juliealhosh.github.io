@@ -96,7 +96,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </div>
               <div className="pt-4 xl:pt-8">
                 <Link
-                  href={`/blog/${slug}`}
+                  href={`/blog/`}
                   className="text-pink hover:text-teal"
                   aria-label="Back to the blog"
                 >
