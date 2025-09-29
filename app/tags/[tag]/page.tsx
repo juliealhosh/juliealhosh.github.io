@@ -1,24 +1,19 @@
 import { slug } from 'github-slugger'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayoutWithTags'
-import { allBlogs } from 'contentlayer/generated'
 import tagData from 'app/tag-data.json'
 import { genPageMetadata } from 'app/seo'
 import { Metadata } from 'next'
+import { getAllPosts } from '@/scripts/mdx'
+import type { Post } from '@/scripts/mdx'
+import { notFound } from 'next/navigation'
 
-type Params = Promise<{ tag: string }>
+type Params = { tag: string }
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const tag = decodeURI((await params).tag)
   return genPageMetadata({
     title: tag,
     description: `${siteMetadata.title} ${tag} tagged content`,
-    // alternates: {
-    //   canonical: './',
-    //   types: {
-    //     'application/rss+xml': `${siteMetadata.siteUrl}/tags/${tag}/feed.xml`,
-    //   },
-    // },
   })
 }
 
@@ -32,11 +27,20 @@ export const generateStaticParams = async () => {
 }
 
 export default async function TagPage({ params }: { params: Params }) {
-  const tag = decodeURI((await params).tag)
-  // Capitalize first letter and convert space to dash
-  const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
-  const filteredPosts = allCoreContent(
-    sortPosts(allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))
+  const tag = decodeURI(params.tag)
+  const posts: Post[] = await getAllPosts()
+
+  const filteredPosts = posts.filter(
+    (post) => post.tags && post.tags.map((t: string) => slug(t)).includes(tag)
   )
+
+  if (!filteredPosts.length) {
+    console.error('No posts found for tag:', tag) // Debugging line
+    notFound()
+  }
+
+  // Capitalize and format the title for display
+  const title = tag.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
+
   return <ListLayout posts={filteredPosts} title={title} />
 }

@@ -12,7 +12,7 @@ const links = [
   {
     name: 'Projects',
     href: '/projects',
-    description: 'Small projects that I am working on.',
+    description: 'Projects that I am working on.',
     icon: BriefcaseIcon,
   },
 ]

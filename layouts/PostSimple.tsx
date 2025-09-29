@@ -1,7 +1,6 @@
 import { ReactNode } from 'react'
 import { formatDate } from 'pliny/utils/formatDate'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog } from 'contentlayer/generated'
+import type { Post } from '@/scripts/mdx'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
@@ -9,14 +8,14 @@ import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 
 interface LayoutProps {
-  content: CoreContent<Blog>
+  content: Post
   children: ReactNode
-  next?: { path: string; title: string }
-  prev?: { path: string; title: string }
+  next?: Post
+  prev?: Post
 }
 
 export default function PostLayout({ content, next, prev, children }: LayoutProps) {
-  const { path, slug, date, title, tags } = content
+  const { slug, title, date, tags, summary } = content
 
   return (
     <SectionContainer>
@@ -63,10 +62,10 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
             </div>
             <footer>
               <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
-                {prev && prev.path && (
+                {prev && prev.slug && (
                   <div className="pt-4 xl:pt-8">
                     <Link
-                      href={`/${prev.path}`}
+                      href={`/blog/${prev.slug}`}
                       className="text-pink hover:text-teal"
                       aria-label={`Previous post: ${prev.title}`}
                     >
@@ -74,10 +73,10 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                     </Link>
                   </div>
                 )}
-                {next && next.path && (
+                {next && next.slug && (
                   <div className="pt-4 xl:pt-8">
                     <Link
-                      href={`/${next.path}`}
+                      href={`/blog/${next.slug}`}
                       className="text-pink hover:text-teal"
                       aria-label={`Next post: ${next.title}`}
                     >

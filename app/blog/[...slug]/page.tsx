@@ -1,18 +1,23 @@
 import 'css/prism.css'
 import 'katex/dist/katex.css'
-
+import type { Metadata } from 'next'
+import siteMetadata from '@/data/siteMetadata'
 import PageTitle from '@/components/PageTitle'
 import { components } from '@/components/MDXComponents'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
-import { allBlogs, allAuthors } from 'contentlayer/generated'
-import type { Authors, Blog } from 'contentlayer/generated'
 import PostSimple from '@/layouts/PostSimple'
 import PostProject from '@/layouts/PostProject'
 import PostLayout from '@/layouts/PostLayout'
 import PostBanner from '@/layouts/PostBanner'
-import { Metadata } from 'next'
-import siteMetadata from '@/data/siteMetadata'
+import { getPostBySlug, getAllPosts, getAllAuthors } from '@/scripts/mdx'
+import type { Post } from '@/scripts/mdx'
+import { notFound } from 'next/navigation'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import { isDraft } from '@/scripts/utils'
+
+// Note: As discussed, you need a custom getCoreContent function
+const getCoreContent = (frontmatter: any) => ({
+  ...frontmatter,
+})
 
 const defaultLayout = 'PostLayout'
 const layouts = {
@@ -21,73 +26,20 @@ const layouts = {
   PostLayout,
   PostBanner,
 }
-type Params = Promise<{ slug: string[] }>
-export async function generateMetadata({
-  params,
-}: {
-  params: Params
-}): Promise<Metadata | undefined> {
-  const { slug } = await params
-  const slugString = slug.join('/') // Convert slug array to a string
-  const post = allBlogs.find((p) => p.slug === slugString)
-  const authorList = post?.authors || ['default']
-  const authorDetails = authorList.map((author) => {
-    const authorResults = allAuthors.find((p) => p.slug === author)
-    return coreContent(authorResults as Authors)
-  })
-  if (!post) {
-    return
-  }
 
-  const publishedAt = new Date(post.date).toISOString()
-  const modifiedAt = new Date(post.lastmod || post.date).toISOString()
-  const authors = authorDetails.map((author) => author.name)
-  let imageList = [siteMetadata.socialBanner]
-  if (post.images) {
-    imageList = typeof post.images === 'string' ? [post.images] : post.images
-  }
-  const ogImages = imageList.map((img) => {
-    return {
-      url: img.includes('http') ? img : siteMetadata.siteUrl + img,
-    }
-  })
-
-  return {
-    title: post.title,
-    description: post.summary,
-    openGraph: {
-      title: post.title,
-      description: post.summary,
-      siteName: siteMetadata.title,
-      locale: 'en_US',
-      type: 'article',
-      publishedTime: publishedAt,
-      modifiedTime: modifiedAt,
-      url: './',
-      images: ogImages,
-      authors: authors.length > 0 ? authors : [siteMetadata.author],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.summary,
-      images: imageList,
-    },
-  }
-}
-
-export const generateStaticParams = async () => {
-  const paths = allBlogs.map((p) => ({ slug: p.slug.split('/') }))
-
-  return paths
-}
+type Params = { slug: string[] }
+// type Params = Promise<{ slug: string[] }>
 
 export default async function Page({ params }: { params: Params }) {
-  const { slug } = await params
-  const slugString = slug.join('/') // Convert slug array to a string
-  // Filter out drafts in production
-  const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
-  const postIndex = sortedCoreContents.findIndex((p) => p.slug === slugString)
+  const slugString = params.slug.join('/')
+  const sortedPosts: Post[] = await getAllPosts()
+
+  // Filter out drafts if in production
+  const publishedPosts =
+    process.env.NODE_ENV === 'production' ? sortedPosts.filter((p) => !isDraft(p)) : sortedPosts
+
+  const postIndex = publishedPosts.findIndex((p) => p.slug === slugString)
+
   if (postIndex === -1) {
     return (
       <div className="mt-24 text-center">
@@ -101,34 +53,92 @@ export default async function Page({ params }: { params: Params }) {
     )
   }
 
-  const prev = sortedCoreContents[postIndex + 1]
-  const next = sortedCoreContents[postIndex - 1]
-  const post = allBlogs.find((p) => p.slug === slugString) as Blog
-  const authorList = post?.authors || ['default']
-  const authorDetails = authorList.map((author) => {
-    const authorResults = allAuthors.find((p) => p.slug === author)
-    return coreContent(authorResults as Authors)
-  })
-  const mainContent = coreContent(post)
-  const jsonLd = post.structuredData
-  jsonLd['author'] = authorDetails.map((author) => {
-    return {
-      '@type': 'Person',
-      name: author.name,
-    }
-  })
+  const prev = sortedPosts[postIndex - 1]
+  const next = sortedPosts[postIndex + 1]
+  const post = await getPostBySlug(slugString)
 
-  const Layout = layouts[post.layout || defaultLayout]
+  if (!post) {
+    return notFound()
+  }
+
+  const allAuthors = await getAllAuthors()
+  const { mdxContent, frontmatter } = post // <-- Use mdxContent here
+  const authorList = (frontmatter.authors as string[]) || ['default']
+  const authorDetails = authorList
+    .map((author) => {
+      const authorResults = allAuthors.find((p) => p.slug === author)
+      return authorResults ? getCoreContent(authorResults) : null
+    })
+    .filter(Boolean)
+
+  const mainContent = getCoreContent(frontmatter)
+
+  const Layout = layouts[frontmatter.layout || defaultLayout]
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
-        <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
+        <MDXRemote source={mdxContent} components={components} />
       </Layout>
     </>
   )
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Params
+}): Promise<Metadata | undefined> {
+  const slugString = params.slug.join('/')
+  const post = await getPostBySlug(slugString)
+
+  if (!post) {
+    return
+  }
+
+  const { frontmatter } = post
+  const allAuthors = await getAllAuthors() // Fetch authors
+  const authorList = (frontmatter.authors as string[]) || ['default']
+  const authorDetails = authorList
+    .map((author) => {
+      const authorResults = allAuthors.find((p) => p.slug === author)
+      return authorResults ? getCoreContent(authorResults) : null
+    })
+    .filter(Boolean)
+
+  const publishedAt = new Date(frontmatter.date).toISOString()
+  const modifiedAt = new Date(frontmatter.lastmod || frontmatter.date).toISOString()
+  const authors = authorDetails.map((author) => author.name)
+  const imageList = [siteMetadata.socialBanner]
+  const ogImages = imageList.map((img) => ({
+    url: img.includes('http') ? img : siteMetadata.siteUrl + img,
+  }))
+
+  return {
+    title: frontmatter.title,
+    description: frontmatter.summary,
+    openGraph: {
+      title: frontmatter.title,
+      description: frontmatter.summary,
+      siteName: siteMetadata.title,
+      locale: 'en_US',
+      type: 'article',
+      publishedTime: publishedAt,
+      modifiedTime: modifiedAt,
+      url: './',
+      images: ogImages,
+      authors: authors.length > 0 ? authors : [siteMetadata.author],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: frontmatter.title,
+      description: frontmatter.summary,
+      images: imageList,
+    },
+  }
+}
+
+export const generateStaticParams = async () => {
+  const posts: Post[] = await getAllPosts()
+  return posts.map((p) => ({ slug: p.slug.split('/') }))
 }

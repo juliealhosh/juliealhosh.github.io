@@ -15,14 +15,15 @@ const siteMetadata = {
   github: 'https://github.com/juliealhosh',
   linkedin: 'https://linkedin.com/in/julie-alhosh',
   locale: 'en-CA',
-  occupation: 'Member of the Mobile Robotics Lab (MRL)',
-  company: 'Centre for Intelligent Machines at McGill',
-  search: {
-    provider: 'kbar',
-    kbarConfig: {
-      searchDocumentsPath: 'search.json',
-    },
-  },
+  occupation: 'AI Developper',
+  company: 'Vention',
+  companyLink: 'https://vention.io',
+  // search: {
+  //   provider: 'kbar',
+  //   kbarConfig: {
+  //     searchDocumentsPath: 'search.json',
+  //   },
+  // },
   comment: {
     // If you want to use a commenting system other than giscus you have to add it to the
     // content security policy in the `next.config.js` file.

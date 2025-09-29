@@ -4,8 +4,7 @@
 import { usePathname } from 'next/navigation'
 import { slug } from 'github-slugger'
 import { formatDate } from 'pliny/utils/formatDate'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog } from 'contentlayer/generated'
+import type { Post } from '@/scripts/mdx'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
@@ -16,9 +15,9 @@ interface PaginationProps {
   currentPage: number
 }
 interface ListLayoutProps {
-  posts: CoreContent<Blog>[]
+  posts: Post[]
   title: string
-  initialDisplayPosts?: CoreContent<Blog>[]
+  initialDisplayPosts?: Post[]
   pagination?: PaginationProps
 }
 
@@ -38,7 +37,11 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
         )}
         {prevPage && (
           <Link
-            href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`}
+            href={
+              currentPage - 1 === 1
+                ? `/blog/${basePath}/`
+                : `/blog/${basePath}/page/${currentPage - 1}`
+            }
             rel="prev"
           >
             Previous
@@ -53,7 +56,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
           </button>
         )}
         {nextPage && (
-          <Link href={`/${basePath}/page/${currentPage + 1}`} rel="next">
+          <Link href={`/blog/${basePath}/page/${currentPage + 1}`} rel="next">
             Next
           </Link>
         )}
@@ -86,7 +89,7 @@ export default function ListLayoutWithTags({
           </h1>
         </div>
         <div className="flex sm:space-x-24">
-          <div className="hidden max-h-screen h-full sm:flex flex-wrap bg-suface0 dark:bg-gray-900/50 shadow-xl pt-5 dark:shadow-gray-800/50 rounded min-w-[280px] max-w-[280px] overflow-auto">
+          <div className="hidden max-h-screen h-full sm:flex flex-wrap bg-suface0 dark:bg-gray-800/50 shadow-2xl pt-5 dark:shadow-gray-400/50 rounded min-w-[280px] max-w-[280px] overflow-auto">
             <div className="py-4 px-6">
               {pathname.includes('/blog') ? ( // Simplified check
                 <h3 className="text-pink font-bold uppercase">All Posts</h3>
@@ -120,9 +123,9 @@ export default function ListLayoutWithTags({
           <div>
             <ul>
               {displayPosts.map((post) => {
-                const { path, date, title, summary, tags } = post
+                const { slug, title, date, tags, summary } = post
                 return (
-                  <li key={path} className="py-5">
+                  <li key={slug} className="py-5">
                     <article className="space-y-2 flex flex-col xl:space-y-0">
                       <dl>
                         <dt className="sr-only">Published on</dt>
@@ -133,12 +136,14 @@ export default function ListLayoutWithTags({
                       <div className="space-y-3">
                         <div>
                           <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                            <Link href={`/${path}`} className="text-pink">
+                            <Link href={`/blog/${slug}`} className="text-pink">
                               {title}
                             </Link>
                           </h2>
                           <div className="flex flex-wrap">
-                            {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                            {tags?.map((tag) => (
+                              <Tag key={tag} text={tag} />
+                            ))}
                           </div>
                         </div>
                         <div className="prose max-w-none text-subtext1">{summary}</div>

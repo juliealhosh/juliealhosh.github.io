@@ -7,14 +7,20 @@ interface Project {
 
 const projectsData: Project[] = [
   {
+    title: 'MSc Thesis: Learning-based active sampling and modeling of aquatic environments',
+    description: `A link to my MSc thesis, McGill University. The thesis explores the use of reinforcement learning to optimize sampling strategies in aquatic environments, with a focus on improving data collection efficiency and accuracy.`,
+    imgSrc: '/static/images/projects/boat.jpeg',
+    href: 'https://escholarship.mcgill.ca/concern/theses/bc386r42m?locale=en',
+  },
+  {
     title: 'Tractable Representations for Convergent Approximation of Distributional HJB Equations',
-    description: `I worked on a project in continuous-time distributional reinforcement learning. This is the link to the paper on arXiv. This paper was accepted to RLDM 2025.`,
+    description: `I worked on a project in continuous-time distributional reinforcement learning. This is the link to the paper on arXiv. This paper was published at RLDM 2025.`,
     imgSrc: '/static/images/projects/rldm.png',
     href: 'https://arxiv.org/abs/2503.05563',
   },
   {
     title: 'Topological mapping for traversability-aware long-range navigation in off-road terrain',
-    description: `I collaborated on a project in off-road mapless navigation. This is the link to the paper on arXiv. This paper was accepted to ICRA 2025.`,
+    description: `I collaborated on a project in off-road mapless navigation. This is the link to the paper on arXiv. This paper was published at ICRA 2025.`,
     imgSrc: '/static/images/projects/Topological_mapping_for_traversability-aware_long-range_navigation_in_off-road_terrain.png',
     href: 'https://arxiv.org/abs/2410.01925',
   },
