@@ -1,10 +1,8 @@
 import { ReactNode } from 'react'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog, Authors } from 'contentlayer/generated'
+import type { Post, Author } from '@/scripts/mdx'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
-import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
@@ -19,16 +17,15 @@ const postDateTemplate: Intl.DateTimeFormatOptions = {
 }
 
 interface LayoutProps {
-  content: CoreContent<Blog>
-  authorDetails: CoreContent<Authors>[]
-  next?: { path: string; title: string }
-  prev?: { path: string; title: string }
+  content: Post
+  authorDetails: Author[]
+  next?: Post
+  prev?: Post
   children: ReactNode
 }
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags } = content
-  const basePath = path.split('/')[0]
+  const { slug, title, date, tags, summary } = content
 
   return (
     <SectionContainer>
@@ -74,23 +71,23 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 )}
                 {(next || prev) && (
                   <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
-                    {prev && prev.path && (
+                    {prev && prev.slug && (
                       <div>
                         <h2 className="text-xs uppercase tracking-wide text-subtext1">
                           Previous Article
                         </h2>
                         <div className="text-cyan hover:text-teal">
-                          <Link href={`/${prev.path}`}>{prev.title}</Link>
+                          <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
                         </div>
                       </div>
                     )}
-                    {next && next.path && (
+                    {next && next.slug && (
                       <div>
                         <h2 className=" text-xs uppercase tracking-wide text-subtext1">
                           Next Article
                         </h2>
                         <div className="text-cyan hover:text-teal">
-                          <Link href={`/${next.path}`}>{next.title}</Link>
+                          <Link href={`/blog/${next.slug}`}>{next.title}</Link>
                         </div>
                       </div>
                     )}
@@ -99,7 +96,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </div>
               <div className="pt-4 xl:pt-8">
                 <Link
-                  href={`/${basePath}`}
+                  href={`/blog/${slug}`}
                   className="text-pink hover:text-teal"
                   aria-label="Back to the blog"
                 >

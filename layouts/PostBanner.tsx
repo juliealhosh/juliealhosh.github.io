@@ -1,39 +1,25 @@
 import { ReactNode } from 'react'
-import Image from '@/components/Image'
-import Bleed from 'pliny/ui/Bleed'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog } from 'contentlayer/generated'
+import type { Post } from '@/scripts/mdx'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
-import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 
 interface LayoutProps {
-  content: CoreContent<Blog>
+  content: Post
   children: ReactNode
-  next?: { path: string; title: string }
-  prev?: { path: string; title: string }
+  next?: Post
+  prev?: Post
 }
 
 export default function PostMinimal({ content, next, prev, children }: LayoutProps) {
-  const { slug, title, images } = content
-  const displayImage =
-    images && images.length > 0 ? images[0] : 'https://picsum.photos/seed/picsum/800/400'
-
+  const { slug, title } = content
   return (
     <SectionContainer>
       <ScrollTopAndComment />
       <article>
         <div>
           <div className="space-y-1 pb-10 text-center dark:border-gray-700">
-            <div className="w-full">
-              <Bleed>
-                <div className="aspect-[2/1] w-full relative">
-                  <Image src={displayImage} alt={title} fill className="object-cover" />
-                </div>
-              </Bleed>
-            </div>
             <div className="pt-10 relative">
               <PageTitle>{title}</PageTitle>
             </div>
@@ -41,10 +27,10 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
           <div className="prose text-text max-w-none py-4 dark:prose-invert">{children}</div>
           <footer>
             <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
-              {prev && prev.path && (
+              {prev && prev.slug && (
                 <div className="pt-4 xl:pt-8">
                   <Link
-                    href={`/${prev.path}`}
+                    href={`/blog/${prev.slug}`}
                     className="text-pink hover:text-teal"
                     aria-label={`Previous post: ${prev.title}`}
                   >
@@ -52,10 +38,10 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                   </Link>
                 </div>
               )}
-              {next && next.path && (
+              {next && next.slug && (
                 <div className="pt-4 xl:pt-8">
                   <Link
-                    href={`/${next.path}`}
+                    href={`/blog/${next.slug}`}
                     className="text-pink hover:text-teal"
                     aria-label={`Next post: ${next.title}`}
                   >

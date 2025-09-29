@@ -65,7 +65,7 @@ export default function Page() {
                 roboitcs.
               </p>
               <p className="mt-4 mb-4 text-gray-900 dark:text-gray-50">
-                I'm currently working as an AI developer in the Physical AI team at Vention, using
+                Currently working as an AI developer in the Physical AI team at Vention, using
                 Foundation models to solve bin picking challenges.
               </p>
               <div className="group relative">
@@ -83,20 +83,6 @@ export default function Page() {
                       key="Python"
                     >
                       Python
-                    </span>
-                    <span
-                      className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
-                      style={{ background: '#555555' }}
-                      key="C"
-                    >
-                      C
-                    </span>
-                    <span
-                      className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
-                      style={{ background: '#178600' }}
-                      key="C++"
-                    >
-                      C++
                     </span>
                     <span
                       className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
@@ -160,6 +146,20 @@ export default function Page() {
                       key="TensorFlow"
                     >
                       TensorFlow
+                    </span>
+                    <span
+                      className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
+                      style={{ background: '#555555' }}
+                      key="C"
+                    >
+                      C
+                    </span>
+                    <span
+                      className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"
+                      style={{ background: '#178600' }}
+                      key="C++"
+                    >
+                      C++
                     </span>
                     <span
                       className="mr-2 mb-2 rounded-sm px-2 py-1 text-xs font-medium text-gray-50"

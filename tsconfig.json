@@ -33,9 +33,9 @@
       "@/css/*": [
         "css/*"
       ],
-      "contentlayer/generated": [
-        "./.contentlayer/generated"
-      ]
+      "@/scripts/*": [
+        "scripts/*"
+      ],
     },
     "plugins": [
       {
@@ -51,8 +51,6 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.json",
-    ".contentlayer/generated",
-    ".contentlayer/generated/**/*.json",
     ".next/types/**/*.ts",
     "build/types/**/*.ts"
   ],

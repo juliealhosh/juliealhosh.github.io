@@ -1,20 +1,23 @@
 import Link from '@/components/Link'
-import Tag from '@/components/Tag'
+import Image from 'next/image'
 import siteMetadata from '@/data/siteMetadata'
-import { formatDate } from 'pliny/utils/formatDate'
-import { genPageMetadata } from 'app/seo'
-import SocialIcon from '@/components/social-icons'
-const MAX_DISPLAY = 5
 
 export default function Home() {
   return (
     <>
       <div className="fade-in banner flex flex-1 flex-row flex-wrap justify-between px-6 py-10 dark:text-gray-50 lg:px-10">
         <div className="flex flex-col justify-center">
-          <h1 className="text-5xl text-gray-900 font-bold dark:text-gray-50 lg:text-5xl">
+          <Image
+            src={siteMetadata.image}
+            alt="avatar"
+            width={200}
+            height={200}
+            className="rounded-full"
+          />
+          <h1 className="text-5xl text-gray-900 font-bold dark:text-gray-50 lg:text-4xl mt-6">
             {siteMetadata.author}
           </h1>
-          <p className="my-2 text-gray-900 lg:my-4 lg:text-4xl dark:text-gray-50">
+          <p className="my-2 text-gray-900 lg:my-4 lg:text-3xl dark:text-gray-50">
             {siteMetadata.occupation} at {siteMetadata.company}
           </p>
         </div>
