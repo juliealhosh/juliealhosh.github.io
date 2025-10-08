@@ -1,10 +1,8 @@
 User-Agent: CCbot
 User-Agent: ChatGPT-User
 User-Agent: GPTBot
-User-Agent: Google-Extended
 User-Agent: Omgilibot
 User-Agent: FacebookBot
 Disallow: /
 
-Host: https://juliealhosh.github.io
-Sitemap: https://juliealhosh.github.io/sitemap.xml
+Sitemap: https://juliealhosh.github.io/sitemap.xml.body
