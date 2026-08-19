@@ -4,7 +4,7 @@ import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import { HomeIcon } from '@heroicons/react/20/solid'
-// import SearchButton from './SearchButton'
+import SearchButton from './SearchButton'
 import Image from './Image'
 
 const Header = () => {
@@ -54,7 +54,7 @@ const Header = () => {
             </Link>
           ))}
         <ThemeSwitch />
-        {/* <SearchButton /> */}
+        <SearchButton />
         <MobileNav />
       </div>
     </header>
