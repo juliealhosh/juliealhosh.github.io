@@ -8,7 +8,7 @@ import { getAllPosts } from '@/scripts/mdx'
 import type { Post } from '@/scripts/mdx'
 import { notFound } from 'next/navigation'
 
-type Params = { tag: string }
+type Params = Promise<{ tag: string }>
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const tag = decodeURI((await params).tag)
   return genPageMetadata({
@@ -27,7 +27,7 @@ export const generateStaticParams = async () => {
 }
 
 export default async function TagPage({ params }: { params: Params }) {
-  const tag = decodeURI(params.tag)
+  const tag = decodeURI((await params).tag)
   const posts: Post[] = await getAllPosts()
 
   const filteredPosts = posts.filter(

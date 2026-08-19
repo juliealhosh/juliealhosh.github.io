@@ -35,13 +35,13 @@ const Header = () => {
         </Link>
       </div>
       <div className="flex items-center leading-5 space-x-4 sm:space-x-6">
-        <a
+        <Link
           href="/"
           className="text-gray-900 hover:text-violet-400 dark:text-gray-200 dark:hover:text-violet-200"
         >
           <HomeIcon className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
           <span className="sr-only">Home</span>
-        </a>
+        </Link>
         {headerNavLinks
           .filter((link) => link.href !== '/')
           .map((link) => (

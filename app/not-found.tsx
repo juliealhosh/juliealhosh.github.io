@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import { BriefcaseIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
@@ -54,10 +55,10 @@ export default function NotFound() {
             ))}
           </ul>
           <div className="mt-10 flex justify-center">
-            <a href="/" className="text-sm font-semibold leading-6 text-cyan">
+            <Link href="/" className="text-sm font-semibold leading-6 text-cyan">
               <span aria-hidden="true">&larr;</span>
               Back to home
-            </a>
+            </Link>
           </div>
         </div>
       </main>

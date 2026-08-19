@@ -27,11 +27,11 @@ const layouts = {
   PostBanner,
 }
 
-type Params = { slug: string[] }
-// type Params = Promise<{ slug: string[] }>
+type Params = Promise<{ slug: string[] }>
 
 export default async function Page({ params }: { params: Params }) {
-  const slugString = params.slug.join('/')
+  const { slug } = await params
+  const slugString = slug.join('/')
   const sortedPosts: Post[] = await getAllPosts()
 
   // Filter out drafts if in production
@@ -89,7 +89,8 @@ export async function generateMetadata({
 }: {
   params: Params
 }): Promise<Metadata | undefined> {
-  const slugString = params.slug.join('/')
+  const { slug } = await params
+  const slugString = slug.join('/')
   const post = await getPostBySlug(slugString)
 
   if (!post) {
