@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { formatDate } from 'pliny/utils/formatDate'
+import { formatDate } from '@/scripts/utils'
 import type { Post } from '@/scripts/mdx'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'

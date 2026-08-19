@@ -1,4 +1,3 @@
-/** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'Julie Alhosh',
   author: 'Julie Alhosh',
@@ -18,12 +17,6 @@ const siteMetadata = {
   occupation: 'AI Developper',
   company: 'Vention',
   companyLink: 'https://vention.io',
-  // search: {
-  //   provider: 'kbar',
-  //   kbarConfig: {
-  //     searchDocumentsPath: 'search.json',
-  //   },
-  // },
   comment: {
     // If you want to use a commenting system other than giscus you have to add it to the
     // content security policy in the `next.config.js` file.

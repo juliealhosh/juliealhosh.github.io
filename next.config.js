@@ -83,10 +83,12 @@ module.exports = () => {
 }
 
 const nextConfig = {
+  output: 'export',
   distDir: "out",
   images: {
     unoptimized: true,
   },
+  transpilePackages: ['next-mdx-remote'],
 };
 
 module.exports = nextConfig;

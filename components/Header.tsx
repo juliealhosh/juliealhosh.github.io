@@ -4,7 +4,7 @@ import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import { HomeIcon } from '@heroicons/react/20/solid'
-// import SearchButton from './SearchButton'
+import SearchButton from './SearchButton'
 import Image from './Image'
 
 const Header = () => {
@@ -35,13 +35,13 @@ const Header = () => {
         </Link>
       </div>
       <div className="flex items-center leading-5 space-x-4 sm:space-x-6">
-        <a
+        <Link
           href="/"
           className="text-gray-900 hover:text-violet-400 dark:text-gray-200 dark:hover:text-violet-200"
         >
           <HomeIcon className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
           <span className="sr-only">Home</span>
-        </a>
+        </Link>
         {headerNavLinks
           .filter((link) => link.href !== '/')
           .map((link) => (
@@ -54,7 +54,7 @@ const Header = () => {
             </Link>
           ))}
         <ThemeSwitch />
-        {/* <SearchButton /> */}
+        <SearchButton />
         <MobileNav />
       </div>
     </header>
