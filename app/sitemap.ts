@@ -3,6 +3,8 @@ import siteMetadata from '@/data/siteMetadata'
 import { getAllPosts } from '@/scripts/mdx'
 import type { Post } from '@/scripts/mdx'
 
+export const dynamic = 'force-static'
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = siteMetadata.siteUrl
   const posts: Post[] = await getAllPosts()
